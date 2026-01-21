@@ -3,27 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🛡️ CodeGuard AI - منصة الأمن السيبراني المتطورة</title>
+<title>🛡️ CodeGuard AI - منصة الأمن السيبراني الرسمية</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!-- PWA Manifest -->
 <link rel="manifest" href="data:application/manifest+json,{
-  \"name\":\"🛡️ CodeGuard AI\",\"short_name\":\"CodeGuard AI\",
-  \"description\":\"منصة الأمن السيبراني المتطورة بالذكاء الاصطناعي\",
+  \"name\":\"🛡️ CodeGuard AI\",\"short_name\":\"CodeGuard\",
   \"theme_color\":\"#2563eb\",\"background_color\":\"#020617\",
   \"display\":\"standalone\",\"start_url\":\"/\",
-  \"orientation\":\"portrait-primary\",
-  \"icons\":[{\"src\":\"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiByeD0iMjQiIGZpbGw9IiMyNTYzRUIiLz4KPHRleHQgeD0iOTYiIHk9IjExNSIgZm9udC1mYW1pbHk9IkNhaXJvLCBBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iI0ZGRiIgZm9udC13ZWlnaHQ9IjgwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+44CR44CRPCsvyDYs9ixPCsvyE8L3RleHQ+Cjwvc3ZnPiI\",\"sizes\":\"192x192\",\"type\":\"image/svg+xml\"},{\"src\":\"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iNjQiIGZpbGw9IiMyNTYzRUIiLz4KPHRleHQgeD0iMjU2IiB5PSIzMDAiIGZvbnQtZmFtaWx5PSJDYWlybywgQXJpYWwiIGZvbnQtc2l6ZT0iNjQiIGZpbGw9IiNGRkYiIGZvbnQtd2VpZ2h0PSI4MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPtCjIDQvSDYp9ixPCsvyE8L3RleHQ+Cjwvc3ZnPiI\",\"sizes\":\"512x512\",\"type\":\"image/svg+xml\"}],
-  \"screenshots\":[{\"src\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==\",\"sizes\":\"1280x720\",\"type\":\"image/png\"}]
+  \"icons\":[{\"src\":\"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiByeD0iMjQiIGZpbGw9IiMyNTYzRUIiLz4KPHRleHQgeD0iOTYiIHk9IjExNSIgZm9udC1mYW1pbHk9IkNhaXJvLCBBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iI0ZGRiIgZm9udC13ZWlnaHQ9IjgwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+44CR44CRPCsvyDYs9ixPCsvyE8L3RleHQ+Cjwvc3ZnPiI\",\"sizes\":\"192x192\"}]
 }">
 <meta name="theme-color" content="#2563eb">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="CodeGuard AI">
-<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiByeD0iMjQiIGZpbGw9IiMyNTYzRUIiLz4KPHRleHQgeD0iOTYiIHk9IjExNSIgZm9udC1mYW1pbHk9IkNhaXJvLCBBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iI0ZGRiIgZm9udC13ZWlnaHQ9IjgwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+44CR44CRPCsvyDYs9ixPCsvyE8L3RleHQ+Cjwvc3ZnPiI">
 <style>
 :root{
   --bg:#020617;--card:rgba(15,23,42,.97);--blue:#38bdf8;--blue2:#2563eb;--green:#22c55e;--red:#ef4444;--yellow:#eab308;--purple:#8b5cf6;
   --light-bg:#f8fafc;--light-card:rgba(255,255,255,.98);--light-text:#1e293b;--glass:rgba(255,255,255,0.12);
-  --shadow-sm:0 10px 25px rgba(0,0,0,0.2);--shadow-md:0 20px 50px rgba(0,0,0,0.3);--shadow-lg:0 30px 70px rgba(0,0,0,0.4);
 }
 *{box-sizing:border-box;font-family:'Cairo',sans-serif;margin:0;padding:0;}
 body{background:linear-gradient(135deg,var(--bg),#111827);color:#e5e7eb;overflow-x:hidden;transition:all .4s;}
@@ -32,30 +25,32 @@ body.light{background:var(--light-bg);color:var(--light-text);}
 body.light .card{background:var(--light-card);color:var(--light-text);}
 body.light nav{background:var(--light-card);color:var(--light-text);}
 
-.skeleton{background:linear-gradient(90deg,#f0f0f0 25%,#e0e0e0 50%,#f0f0f0 75%);background-size:200% 100%;animation:loading 1.5s infinite;border-radius:12px;}
-@keyframes loading{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+.loading{display:inline-block;width:22px;height:22px;border:3px solid rgba(255,255,255,.3);border-radius:50%;border-top-color:#fff;margin-right:12px;animation:spin 1s ease-in-out infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
 
 #login{height:100vh;background:linear-gradient(135deg,#020617,rgba(56,189,248,0.2));display:flex;justify-content:center;align-items:center;position:relative;}
 #login::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;backdrop-filter:blur(12px);background:rgba(0,0,0,0.5);z-index:1;}
-.login-box{background:var(--card);backdrop-filter:blur(30px);padding:45px;width:90%;max-width:480px;border-radius:30px;box-shadow:var(--shadow-lg);border:1px solid var(--glass);z-index:2;animation:fadeInUp 1.2s;}
+.login-box{background:var(--card);backdrop-filter:blur(30px);padding:45px;width:90%;max-width:480px;border-radius:30px;box-shadow:0 35px 70px rgba(0,0,0,0.7);border:1px solid var(--glass);z-index:2;animation:fadeInUp 1.2s;}
 .login-box h2{text-align:center;font-weight:800;margin-bottom:40px;background:linear-gradient(135deg,var(--blue),var(--blue2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:2.8em;}
 .login-box input{width:100%;padding:20px;margin:18px 0;border:none;border-radius:18px;font-size:17px;background:var(--glass);color:#e5e7eb;border:1px solid rgba(255,255,255,0.3);transition:all .3s;}
 .login-box input::placeholder{color:#9ca3af;}
 .login-box input:focus{outline:none;box-shadow:0 0 0 4px rgba(56,189,248,0.4);border-color:var(--blue);transform:scale(1.02);}
-button{background:linear-gradient(135deg,var(--blue2),var(--blue));color:#fff;font-weight:700;cursor:pointer;transition:all .3s;border:none;border-radius:18px;padding:20px;font-size:18px;box-shadow:var(--shadow-md);}
-button:hover{transform:translateY(-3px) scale(1.02);box-shadow:var(--shadow-lg);}
+button{background:linear-gradient(135deg,var(--blue2),var(--blue));color:#fff;font-weight:700;cursor:pointer;transition:all .3s;border:none;border-radius:18px;padding:20px;font-size:18px;box-shadow:0 10px 30px rgba(37,99,235,0.5);}
+button:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 15px 40px rgba(37,99,235,0.7);}
 button:disabled{background:#64748b;transform:none;cursor:not-allowed;}
-.loading{display:inline-block;width:22px;height:22px;border:3px solid rgba(255,255,255,.3);border-radius:50%;border-top-color:#fff;margin-right:12px;animation:spin 1s ease-in-out infinite;}
-@keyframes spin{to{transform:rotate(360deg);}}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(60px);}to{opacity:1;transform:translateY(0);}}
 
-nav{position:sticky;top:0;z-index:100;background:var(--card);backdrop-filter:blur(30px);display:flex;justify-content:space-between;align-items:center;padding:18px 30px;border-bottom:1px solid rgba(255,255,255,0.2);box-shadow:var(--shadow-md);}
+.success-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);backdrop-filter:blur(20px);display:flex;justify-content:center;align-items:center;z-index:10000;}
+.success-box{background:linear-gradient(135deg,var(--green),#16a34a);color:#fff;padding:60px;border-radius:35px;text-align:center;max-width:500px;width:90%;box-shadow:0 40px 80px rgba(34,197,94,0.4);border:3px solid #fff;animation:pulse 2s infinite;}
+.success-box h2{font-size:3em;margin-bottom:20px;}
+.success-box p{font-size:1.4em;margin-bottom:30px;}
+@keyframes pulse{0%,100%{transform:scale(1);box-shadow:0 40px 80px rgba(34,197,94,0.4);}50%{transform:scale(1.05);box-shadow:0 50px 100px rgba(34,197,94,0.6);}}
+
+nav{position:sticky;top:0;z-index:100;background:var(--card);backdrop-filter:blur(30px);display:flex;justify-content:space-between;align-items:center;padding:18px 30px;border-bottom:1px solid rgba(255,255,255,0.2);box-shadow:0 15px 50px rgba(0,0,0,0.5);}
 .logo{font-size:2.2em;font-weight:800;background:linear-gradient(135deg,var(--blue),#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .nav-buttons{display:flex;gap:15px;flex-wrap:wrap;align-items:center;}
 nav button{background:rgba(30,41,59,0.95);color:#e5e7eb;border:none;padding:16px 28px;border-radius:18px;font-weight:700;cursor:pointer;transition:all .3s;position:relative;overflow:hidden;}
-nav button::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);transition:.6s;}
-nav button:hover{background:linear-gradient(135deg,var(--blue2),var(--blue));transform:translateY(-2px);box-shadow:var(--shadow-md);}
-nav button:hover::before{left:100%;}
+nav button:hover{background:linear-gradient(135deg,var(--blue2),var(--blue));transform:translateY(-2px);}
 nav button.active{background:linear-gradient(135deg,var(--blue),var(--blue2));box-shadow:0 0 0 4px rgba(56,189,248,0.4);}
 #modeToggle{padding:14px 20px;background:var(--blue2);border-radius:15px;font-size:22px;transition:all .3s;}
 #modeToggle:hover{transform:scale(1.15) rotate(180deg);}
@@ -63,53 +58,43 @@ nav button.active{background:linear-gradient(135deg,var(--blue),var(--blue2));bo
 .container{max-width:1300px;margin:auto;padding:30px;}
 .grid{display:grid;gap:30px;}
 .grid-4{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
-.card{background:var(--card);backdrop-filter:blur(25px);padding:35px;border-radius:25px;box-shadow:var(--shadow-md);border:1px solid var(--glass);transition:all .4s;position:relative;overflow:hidden;}
-.card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg,var(--blue),var(--blue2));}
-.card:hover{transform:translateY(-12px) scale(1.02);box-shadow:var(--shadow-lg);}
+.card{background:var(--card);backdrop-filter:blur(25px);padding:35px;border-radius:25px;box-shadow:0 25px 55px rgba(0,0,0,0.5);border:1px solid var(--glass);transition:all .4s;}
+.card:hover{transform:translateY(-12px) scale(1.02);box-shadow:0 35px 70px rgba(0,0,0,0.6);}
 
 .stat{font-size:3em;font-weight:800;margin-bottom:15px;}
 .stat.Low{color:var(--green);text-shadow:0 0 25px rgba(34,197,94,0.7);}
 .stat.Medium{color:var(--yellow);text-shadow:0 0 25px rgba(234,179,8,0.7);}
 .stat.High{color:var(--red);text-shadow:0 0 25px rgba(239,68,68,0.7);}
 .stat.default{background:linear-gradient(135deg,var(--blue),#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.badge{display:inline-block;padding:12px 24px;border-radius:35px;background:linear-gradient(135deg,var(--blue2),var(--blue));font-weight:700;color:#fff;box-shadow:var(--shadow-sm);}
+.badge{display:inline-block;padding:12px 24px;border-radius:35px;background:linear-gradient(135deg,var(--blue2),var(--blue));font-weight:700;color:#fff;box-shadow:0 8px 25px rgba(37,99,235,0.5);}
 
-.chart-container{background:rgba(255,255,255,0.05);border-radius:20px;padding:25px;margin:20px 0;}
-#vulnChart,#progressChart{border-radius:15px;}
-
-#fileInput{display:none;}
-.file-upload-btn{background:linear-gradient(135deg,var(--green),#16a34a);color:#fff;padding:18px 35px;border:none;border-radius:18px;cursor:pointer;font-weight:700;margin-bottom:25px;transition:all .3s;box-shadow:var(--shadow-md);}
-.file-upload-btn:hover{background:linear-gradient(135deg,#16a34a,#15803d);transform:scale(1.05);}
-textarea{width:100%;height:220px;background:rgba(17,24,39,0.97);color:#e5e7eb;border:1px solid rgba(255,255,255,0.3);border-radius:20px;padding:25px;font-family:'Courier New',monospace;font-size:16px;resize:vertical;transition:all .3s;}
+.file-upload-btn{background:linear-gradient(135deg,var(--green),#16a34a);color:#fff;padding:18px 35px;border:none;border-radius:18px;cursor:pointer;font-weight:700;margin-bottom:25px;transition:all .3s;box-shadow:0 10px 30px rgba(34,197,94,0.5);}
+.file-upload-btn:hover{transform:scale(1.05);}
+textarea{width:100%;height:220px;background:rgba(17,24,39,0.97);color:#e5e7eb;border:1px solid rgba(255,255,255,0.3);border-radius:20px;padding:25px;font-family:'Courier New',monospace;font-size:16px;resize:vertical;}
 textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(56,189,248,0.4);border-color:var(--blue);}
 #scanResult{margin-top:30px;padding:30px;border-radius:20px;background:rgba(0,0,0,0.6);border-left:6px solid var(--blue);}
-#scanHistory{margin-top:25px;padding:25px;border-radius:18px;background:rgba(0,0,0,0.5);max-height:180px;overflow-y:auto;}
-.live-scan{border:2px solid var(--yellow);animation:pulse 2s infinite;}
-
-#aiExplainBtn{background:linear-gradient(135deg,var(--purple),#7c3aed);margin-top:25px;padding:18px 40px;display:none;}
-.ai-explain{display:none;background:linear-gradient(135deg,rgba(139,92,246,0.3),rgba(168,85,247,0.3));border-left:8px solid var(--purple);padding:35px;border-radius:25px;margin-top:30px;}
-.vuln-item{padding:25px;margin:15px 0;border-radius:18px;box-shadow:var(--shadow-sm);}
+.vuln-item{padding:25px;margin:15px 0;border-radius:18px;}
 .severity-high{background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;}
 .severity-medium{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;}
 .severity-low{background:linear-gradient(135deg,#10b981,#059669);color:#fff;}
 
+.progress{background:rgba(30,41,59,0.97);border-radius:18px;height:24px;overflow:hidden;margin:30px 0;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--green),#86efac);border-radius:18px;transition:width 2s ease;box-shadow:0 0 30px rgba(34,197,94,0.7);}
+
+.profile-img{border-radius:50%;width:120px;height:120px;margin:0 auto 30px;display:block;border:6px solid var(--glass);cursor:pointer;transition:all .4s;box-shadow:0 15px 40px rgba(0,0,0,0.5);}
+.profile-img:hover{transform:scale(1.1);}
+.logout-btn{background:linear-gradient(135deg,var(--red),#dc2626);color:#fff;padding:18px 45px;border:none;border-radius:18px;font-weight:700;cursor:pointer;transition:all .3s;margin-top:35px;}
+.logout-btn:hover{transform:translateY(-3px);}
+
+.thank-you-msg{background:linear-gradient(135deg,var(--green),#16a34a);color:#fff;padding:35px;border-radius:30px;margin:30px 0;text-align:center;font-weight:800;box-shadow:0 20px 50px rgba(34,197,94,0.5);border-left:10px solid #fff;}
+.form-submitted form{display:none !important;}
+
 .quiz-q{margin-bottom:30px;}
 .quiz-q label{display:block;margin:15px 0;padding:22px;border-radius:18px;background:var(--glass);border:1px solid rgba(255,255,255,0.2);cursor:pointer;transition:all .3s;}
 .quiz-q label:hover{background:rgba(56,189,248,0.25);transform:translateX(5px);}
-.progress{background:rgba(30,41,59,0.97);border-radius:18px;height:24px;overflow:hidden;margin:30px 0;}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--green),#86efac,#22c55e);border-radius:18px;transition:width 2s ease;box-shadow:0 0 30px rgba(34,197,94,0.7);}
 
-.profile-img{border-radius:50%;width:120px;height:120px;margin:0 auto 30px;display:block;border:6px solid var(--glass);cursor:pointer;transition:all .4s;box-shadow:var(--shadow-lg);}
-.profile-img:hover{transform:scale(1.1) rotate(5deg);}
-#profileUpload{display:none;}
-.logout-btn{background:linear-gradient(135deg,var(--red),#dc2626);color:#fff;padding:18px 45px;border:none;border-radius:18px;font-weight:700;cursor:pointer;transition:all .3s;margin-top:35px;}
-.logout-btn:hover{background:linear-gradient(135deg,#dc2626,#b91c1c);transform:translateY(-3px);}
-
-.thank-you-msg{display:none;background:linear-gradient(135deg,var(--green),#16a34a);color:#fff;padding:35px;border-radius:30px;margin:30px 0;text-align:center;font-weight:800;box-shadow:var(--shadow-lg);border-left:10px solid #fff;animation:fadeInUp 0.8s;}
-.thank-you-msg.show{display:block;}
-.form-submitted form{display:none !important;}
-
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.5;}}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);backdrop-filter:blur(20px);justify-content:center;align-items:center;z-index:1000;}
+.modal video{width:95%;max-width:1100px;border-radius:25px;}
 
 section{animation:fadeInUp 1.2s ease;}
 @media(max-width:768px){
@@ -117,37 +102,40 @@ section{animation:fadeInUp 1.2s ease;}
   .container{padding:20px;}
   .grid-4{grid-template-columns:1fr;}
   nav{padding:15px 20px;flex-direction:column;gap:20px;}
-  .logo{font-size:1.8em;text-align:center;}
 }
 @media(max-width:480px){
   .login-box{padding:35px;max-width:95%;}
-  nav{padding:12px 15px;}
   .card{padding:28px;}
-  .stat{font-size:2.2em;}
 }
 </style>
 </head>
 <body>
-<canvas id="confettiCanvas" style="display:none;"></canvas>
 
 <!-- LOGIN -->
 <section id="login">
 <div class="login-box">
 <h2>🛡️ CodeGuard AI</h2>
-<form id="loginForm" action="https://formsubmit.co/shryfmhmdbdalghnyrajh@gmail.com" method="POST">
+<form id="loginForm">
 <input name="name" placeholder="الاسم الكامل" required>
 <input name="email" type="email" placeholder="البريد الإلكتروني" required>
 <input type="hidden" name="form_type" value="login">
-<input type="hidden" name="_subject" value="تسجيل دخول جديد - CodeGuard AI 🚀">
-<input type="hidden" name="_captcha" value="false">
 <button type="submit" id="loginBtn">
 <span id="loginText">🚀 دخول المنصة الرسمية</span>
 <span id="loginLoading" class="loading" style="display:none;"></span>
 </button>
 </form>
-<div class="thank-you-msg" id="loginThankYou">✅ تم تسجيل بيانات الدخول بنجاح!<br>جاري الانتقال للمنصة المتطورة...</div>
+<div class="thank-you-msg hidden" id="loginThankYou">✅ تم تسجيل بيانات الدخول بنجاح!<br>جاري الانتقال للمنصة...</div>
 </div>
 </section>
+
+<!-- SUCCESS OVERLAY (شكر مدمج) -->
+<div id="successOverlay" class="success-overlay hidden">
+<div class="success-box">
+<h2>🎉 مرحباً بك!</h2>
+<p>تم إرسال بياناتك بنجاح إلى<br><strong>shryfmhmdbdalghnyrajh@gmail.com</strong></p>
+<p>جاري تحميل المنصة المتطورة...</p>
+</div>
+</div>
 
 <!-- APP -->
 <section id="app" class="hidden">
@@ -158,8 +146,6 @@ section{animation:fadeInUp 1.2s ease;}
 <button onclick="showSection('scanner',this)">🧰 Scanner</button>
 <button onclick="showSection('quiz',this)">📝 Exam</button>
 <button onclick="showSection('courses',this)">🎓 Courses</button>
-<button onclick="showSection('leaderboard',this)">🏆 Leaderboard</button>
-<button onclick="showSection('contact',this)">📩 Contact</button>
 <button onclick="showSection('profile',this)">👤 Profile</button>
 <button id="modeToggle" onclick="toggleMode()">🌓</button>
 <button onclick="window.open('https://wa.me/201098995624','_blank')" style="background:linear-gradient(135deg,var(--green),#16a34a);">💬</button>
@@ -172,62 +158,29 @@ section{animation:fadeInUp 1.2s ease;}
 <div class="grid grid-4">
 <div class="card"><div class="stat default" id="secLevel">Medium</div>مستوى الأمان</div>
 <div class="card"><div class="stat default" id="vulnCount">0</div>الثغرات</div>
-<div class="card"><div class="stat default" id="xpCount">150</div>نقاط الخبرة</div>
-<div class="card"><div class="stat default" id="userLevel">متوسط</div>مستوى المستخدم</div>
+<div class="card"><div class="stat default">🤖 AI</div>محرك التحليل</div>
+<div class="card"><div class="stat default" id="userLevel">مبتدئ</div>مستوى المستخدم</div>
 </div>
 
 <div class="grid grid-4">
-<div class="card">
-<h4>🤖 توصيات AI المتطورة</h4>
-<ul style="line-height:2;">
-<li>✅ تجنب <code>eval()</code> و <code>document.write</code></li>
-<li>✅ Prepared Statements لـ SQL</li>
-<li>✅ HTTPS + HSTS Headers</li>
-<li>✅ CSP Headers</li>
-<li>✅ Rate Limiting</li>
-</ul>
-</div>
-<div class="card">
-<h4>📊 تقدمك</h4>
-<p id="quizScore">لم يتم إجراء اختبار</p>
-<div class="progress"><div id="quizBar" class="progress-fill" style="width:0%"></div></div>
-<span class="badge" id="badge">لا شارات</span>
-<div class="chart-container" id="progressChart"></div>
-</div>
-<div class="card">
-<h4>🎯 المهام اليومية</h4>
-<div class="skeleton" style="height:20px;margin:10px 0;" id="daily1"></div>
-<div class="skeleton" style="height:20px;margin:10px 0;" id="daily2"></div>
-<div class="skeleton" style="height:20px;margin:10px 0;" id="daily3"></div>
-</div>
-<div class="card">
-<h4>🏅 الإنجازات</h4>
-<span class="badge" style="background:linear-gradient(135deg,var(--purple),#7c3aed);">🌱 المبتدئ</span><br><br>
-<span class="badge" id="achieve1" style="opacity:0.5;">🔥 المحترف</span><br>
-<span class="badge" id="achieve2" style="opacity:0.5;">🏆 الخبير</span>
-</div>
-</div>
-
-<div class="card" style="grid-column:1/-1;">
-<h3>🎮 نظام النقاط المتطور</h3>
-<p>اكسب نقاط XP من خلال إكمال المهام والاختبارات والفحص اليومي للكود!</p>
-<div class="progress" style="width:400px;margin:25px auto;"><div class="progress-fill" style="width:35%;background:linear-gradient(90deg,var(--purple),var(--blue));" id="xpBar"></div></div>
-<button onclick="claimDaily()" style="width:auto;padding:18px 50px;margin-top:25px;background:linear-gradient(135deg,var(--purple),#7c3aed);">🎁 استلام المكافآت اليومية</button>
+<div class="card"><h4>🤖 توصيات AI</h4><ul style="line-height:2;"><li>✅ تجنب eval() و document.write</li><li>✅ Prepared Statements لـ SQL</li><li>✅ HTTPS + HSTS Headers</li><li>✅ CSP Headers</li><li>✅ Rate Limiting</li></ul></div>
+<div class="card"><h4>📊 تقدم الاختبار</h4><p id="quizScore">لم يتم إجراء اختبار</p><div class="progress"><div id="quizBar" class="progress-fill" style="width:0%"></div></div><span class="badge" id="badge">لا شارات</span></div>
+<div class="card"><h4>🎓 مسار التعلم</h4><ol><li>أساسيات الأمن السيبراني</li><li>ثغرات الويب</li><li>البرمجة الآمنة</li><li>اختبار الاختراق</li><li>أدوات AI الأمنية</li></ol></div>
+<div class="card"><h4>🏅 الشارات</h4><span class="badge" id="profileBadge">لا شارات</span></div>
 </div>
 </section>
 
 <!-- SCANNER -->
 <section id="scanner" class="hidden">
 <div class="card">
-<h3>🧠 فحص الكود الذكي المتطور (Real-time)</h3>
+<h3>🧰 فحص الكود الذكي AI</h3>
 <input type="file" id="fileInput" accept=".txt,.js,.html,.php,.py,.css" style="display:none;">
 <label for="fileInput" class="file-upload-btn">📁 رفع ملف كود</label>
-<textarea id="codeInput" placeholder="الصق الكود هنا... يتم الفحص التلقائي أثناء الكتابة 🚀"></textarea>
-<button onclick="deepScanCode()" style="width:auto;padding:20px 50px;margin-top:25px;background:linear-gradient(135deg,var(--blue2),var(--blue));">🔍 فحص عميق</button>
-<button id="aiExplainBtn" onclick="toggleAIExplain()" style="background:linear-gradient(135deg,var(--purple),#7c3aed);">🧠 تحليل AI</button>
+<textarea id="codeInput" placeholder="الصق الكود هنا أو ارفع ملف... يدعم JS, HTML, PHP, Python, CSS"></textarea>
+<button onclick="scanCode()" style="width:auto;padding:20px 50px;margin-top:25px;background:linear-gradient(135deg,var(--blue2),var(--blue));">🚀 تحليل الكود</button>
+<button id="aiExplainBtn" onclick="toggleAIExplain()" style="background:linear-gradient(135deg,var(--purple),#7c3aed);">🧠 تفسير الذكاء الاصطناعي</button>
 <div id="scanResult"></div>
-<div class="chart-container"><canvas id="vulnChart" width="400" height="200"></canvas></div>
-<div id="aiExplain" class="ai-explain"></div>
+<div id="aiExplain" class="ai-explain" style="display:none;"></div>
 <div id="scanHistory"></div>
 </div>
 </section>
@@ -235,80 +188,26 @@ section{animation:fadeInUp 1.2s ease;}
 <!-- QUIZ -->
 <section id="quiz" class="hidden">
 <div class="card">
-<h3>📝 اختبار الأمن السيبراني المتقدم (15 سؤال)</h3>
-<form id="quizForm" action="https://formsubmit.co/shryfmhmdbdalghnyrajh@gmail.com" method="POST">
+<h3>📝 اختبار الأمن السيبراني (15 سؤال)</h3>
+<form id="quizForm">
 <div id="quizBox"></div>
 <input type="hidden" name="result_score" id="resultScore">
-<input type="hidden" name="xp_earned" id="xpEarned">
 <input type="hidden" name="form_type" value="quiz">
-<input type="hidden" name="_subject" value="نتيجة اختبار متقدم - CodeGuard AI">
-<input type="hidden" name="_captcha" value="false">
 <button type="submit" id="quizSubmitBtn" style="width:auto;padding:20px 50px;margin-top:35px;">
 <span id="quizBtnText">📊 إرسال الاختبار</span>
 <span id="quizLoading" class="loading" style="display:none;"></span>
 </button>
 </form>
-<div class="thank-you-msg" id="quizThankYou">✅ تم إرسال الاختبار بنجاح!<br>🎉 حصلت على <span id="xpReward">100</span> نقطة XP!</div>
+<div class="thank-you-msg hidden" id="quizThankYou">✅ تم إرسال نتيجة الاختبار بنجاح!<br>تم حفظ النتيجة في ملفك الشخصي</div>
 <div id="quizResult" style="margin-top:40px;display:none;"></div>
-</div>
-</section>
-
-<!-- LEADERBOARD -->
-<section id="leaderboard" class="hidden">
-<div class="card" style="grid-column:1/-1;">
-<h3>🏆 قائمة الأفضل العالمية</h3>
-<div class="progress" style="width:100%;height:8px;margin:20px 0;"><div class="progress-fill" style="width:85%;background:linear-gradient(90deg,var(--gold),var(--silver));"></div></div>
-<ol id="globalLeaderList" style="max-height:400px;overflow-y:auto;"></ol>
 </div>
 </section>
 
 <!-- COURSES -->
 <section id="courses" class="hidden">
 <div class="grid grid-4">
-<div class="card">
-<h4>🎓 أساسيات OWASP Top 10</h4>
-<p>25 درس • 95% مكتمل</p>
-<div class="progress"><div class="progress-fill" style="width:95%"></div></div>
-<button onclick="playCourseVideo('course1.mp4')" style="width:100%;padding:18px 30px;margin-top:25px;">▶️ متابعة الكورس</button>
-</div>
-<div class="card">
-<h4>🔐 تشفير متقدم</h4>
-<p>18 درس • 60% مكتمل</p>
-<div class="progress"><div class="progress-fill" style="width:60%"></div></div>
-<button onclick="playCourseVideo('course2.mp4')" style="width:100%;padding:18px 30px;margin-top:25px;">▶️ متابعة الكورس</button>
-</div>
-<div class="card">
-<h4>🛡️ اختبار الاختراق</h4>
-<p>22 درس • 0% مكتمل</p>
-<div class="progress"><div class="progress-fill" style="width:0%"></div></div>
-<button onclick="playCourseVideo('course3.mp4')" style="width:100%;padding:18px 30px;margin-top:25px;">▶️ ابدأ الكورس</button>
-</div>
-<div class="card">
-<h4>🤖 AI Security</h4>
-<p>15 درس • جديد</p>
-<div class="progress"><div class="progress-fill" style="width:0%"></div></div>
-<button onclick="playCourseVideo('course4.mp4')" style="width:100%;padding:18px 30px;margin-top:25px;">▶️ ابدأ الكورس</button>
-</div>
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="hidden">
-<div class="card">
-<h3>📩 تواصل مع الفريق</h3>
-<form id="contactForm" action="https://formsubmit.co/shryfmhmdbdalghnyrajh@gmail.com" method="POST">
-<input name="name" placeholder="الاسم الكامل" required>
-<input name="email" type="email" placeholder="البريد الإلكتروني" required>
-<textarea name="message" rows="6" placeholder="رسالتك... سنرد خلال 24 ساعة 🚀" required></textarea>
-<input type="hidden" name="form_type" value="contact">
-<input type="hidden" name="_subject" value="رسالة من منصة CodeGuard AI">
-<input type="hidden" name="_captcha" value="false">
-<button type="submit" id="contactBtn">
-<span id="contactText">🚀 إرسال الرسالة</span>
-<span id="contactLoading" class="loading" style="display:none;"></span>
-</button>
-</form>
-<div class="thank-you-msg" id="contactThankYou">✅ تم إرسال رسالتك بنجاح!<br>سيتم الرد خلال 24 ساعة 📧</div>
+<div class="card"><h4>🎓 أساسيات الأمن</h4><p>مقدمة شاملة في الأمن السيبراني</p><button onclick="playCourseVideo('course1.mp4')" style="width:100%;padding:18px 30px;margin-top:25px;">▶️ تشغيل الكورس 1</button></div>
+<div class="card"><h4>🔍 تحليل الثغرات</h4><p>كيفية اكتشاف الثغرات الأمنية</p><button onclick="playCourseVideo('course2.mp4')" style="width:100%;padding:18px 30px;margin-top:25px;">▶️ تشغيل الكورس 2</button></div>
 </div>
 </section>
 
@@ -316,17 +215,13 @@ section{animation:fadeInUp 1.2s ease;}
 <section id="profile" class="hidden">
 <div class="card">
 <img src="https://via.placeholder.com/120/2563eb/ffffff?text=👤" alt="Profile" class="profile-img" id="profilePic">
-<label for="profileUpload" class="file-upload-btn" style="display:block;margin:30px auto;width:fit-content;">📸 تحديث الصورة الشخصية</label>
+<label for="profileUpload" class="file-upload-btn" style="display:block;margin:30px auto;width:fit-content;">📸 تغيير الصورة</label>
 <input type="file" id="profileUpload" accept="image/*">
-<h3 style="text-align:center;margin:35px 0 25px 0;font-size:2.2em;">👤 الملف الشخصي المتطور</h3>
+<h3 style="text-align:center;margin:35px 0 25px 0;">👤 الملف الشخصي</h3>
 <p id="pname" style="font-size:1.6em;text-align:center;font-weight:800;margin:25px 0;"></p>
 <p id="pemail" style="font-size:1.4em;text-align:center;color:#9ca3af;margin:20px 0;"></p>
 <p id="pLevel" style="font-size:1.5em;text-align:center;margin:30px 0;"></p>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;margin:30px 0;">
-<span class="badge" id="profileBadge">شارة المتوسط</span>
-<span class="badge" style="background:linear-gradient(135deg,var(--purple),#7c3aed);" id="xpBadge">1250 XP</span>
-<span class="badge" style="background:linear-gradient(135deg,var(--green),#16a34a);" id="streakBadge">🔥 5 يوم</span>
-</div>
+<span class="badge" id="profileBadge" style="display:block;margin:25px auto;">شارة المبتدئ</span>
 <button onclick="logout()" class="logout-btn">🚪 تسجيل الخروج</button>
 </div>
 </section>
@@ -339,104 +234,299 @@ section{animation:fadeInUp 1.2s ease;}
 <video id="modalVideo" controls></video>
 </div>
 
-<!-- PWA Install Prompt -->
-<div id="installPrompt" class="hidden" style="position:fixed;bottom:20px;right:20px;background:linear-gradient(135deg,var(--green),#16a34a);color:white;padding:20px;border-radius:20px;box-shadow:var(--shadow-lg);z-index:10000;">
-<h4>📱 تثبيت التطبيق</h4>
-<p>أضف CodeGuard AI إلى الشاشة الرئيسية!</p>
-<button onclick="installPWA()" style="background:white;color:var(--green);padding:12px 25px;border:none;border-radius:12px;font-weight:700;cursor:pointer;margin-top:10px;">تثبيت</button>
-<button onclick="hideInstall()" style="background:transparent;color:white;border:1px solid white;padding:12px 25px;border-radius:12px;font-weight:700;cursor:pointer;margin-left:10px;">لاحقاً</button>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-let user={},lastScore=0,scanHistoryArr=[],currentVulns=[],userXP=1250,streak=5;
-let vulnChart=null,progressChart=null;
-let isScanning=false;
-const questions=[["ما هو XSS؟",["هجوم الحقن","بروتوكول الشبكة","خوارزمية تشفير","نوع من الـ Firewall"],0],["SQL Injection يحدث بسبب؟",["عدم تنظيف المدخلات","ضعف التشفير","مشكلة في الذاكرة","خطأ في SSL"],0],["أفضل طريقة لحماية من CSRF؟",["CSRF Tokens","HTTPS فقط","Input Validation","2FA"],0],["eval() في JavaScript؟",["خطير جداً","آمن تماماً","مستحسن","بديل لـ JSON"],0],["OWASP Top 10 يشمل؟",["أهم الثغرات","أدوات الحماية","لغات البرمجة","شهادات الأمان"],0],["HTTPS يستخدم؟",["SSL/TLS","RSA فقط","DES","MD5"],0],["Rate Limiting يحمي من؟",["DDoS","XSS","CSRF","SQLi"],0],["Content Security Policy؟",["يحمي من XSS","يسرّع الموقع","يحسن SEO","يشفّر البيانات"],0],["2FA أفضل لأنه؟",["طبقة حماية إضافية","أسرع","مجاني","لا يحتاج إنترنت"],0],["Input Sanitization؟",["تنظيف المدخلات","تشفير البيانات","ضغط الملفات","تحليل الشبكة"],0],["JWT يُستخدم في؟",["المصادقة","التشفير","الضغط","التخزين"],0],["CORS يتحكم في؟",["الطلبات البينية","سرعة التحميل","الذاكرة","المعالج"],0],["HSTS Header يجبر؟",["HTTPS فقط","HTTP","Mixed Content","Caching"],0],["X-Frame-Options يحمي من؟",["Clickjacking","SQL Injection","XSS","CSRF"],0],["Prepared Statements تحمي من؟",["SQL Injection","XSS","CSRF","DDoS"],0]];
+let user={},lastScore=0,scanHistoryArr=[],scanResults=[],currentVulns=[];
 
-// PWA Service Worker
-if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register(Blob.toString(new Blob([`const CACHE_NAME='codeguard-v1';self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE_NAME).then(cache=>cache.addAll(['/']))));self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(response=>response||fetch(e.request))))`],{type:'application/javascript'}))).catch(()=>{}));}
+// المتغيرات العامة
+const EMAIL_TO = 'shryfmhmdbdalghnyrajh@gmail.com';
+const questions = [
+  ["XSS هو؟",["هجوم متصفح","بروتوكول","تشفير","شبكة"],0],
+  ["SQL Injection؟",["حقن","تحديث","نسخ","حماية"],0],
+  ["HTTPS آمن؟",["نعم","لا"],0,true],
+  ["Firewall يحمي؟",["نعم","لا"],0,true],
+  ["eval() خطر؟",["نعم","لا"],0,true],
+  ["CSRF Protection؟",["نعم مطلوب","غير مطلوب"],0,true],
+  ["2FA أفضل؟",["نعم","لا"],0,true],
+  ["OWASP Top 10؟",["أهم","غير مهم"],0,true],
+  ["HTTPS Certificate؟",["SSL/TLS","عادي"],0,true],
+  ["Input Validation؟",["مطلوب دائماً","اختياري"],0,true],
+  ["JWT يُستخدم في؟",["المصادقة","التشفير","الضغط","التخزين"],0],
+  ["CORS يتحكم في؟",["الطلبات البينية","سرعة التحميل","الذاكرة","المعالج"],0],
+  ["HSTS Header يجبر؟",["HTTPS فقط","HTTP","Mixed Content","Caching"],0],
+  ["X-Frame-Options يحمي من؟",["Clickjacking","SQL Injection","XSS","CSRF"],0],
+  ["Prepared Statements تحمي من؟",["SQL Injection","XSS","CSRF","DDoS"],0]
+];
 
-let deferredPrompt;window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault();deferredPrompt=e;document.getElementById('installPrompt').classList.remove('hidden');});
-
-// Initialize
-window.addEventListener('load',()=>{
-  const name=localStorage.getItem('userName'),email=localStorage.getItem('userEmail'),theme=localStorage.getItem('theme');
-  if(theme==='light')document.body.classList.add('light');
-  if(name&&email){user={name,email};document.getElementById('login').classList.add('hidden');document.getElementById('app').classList.remove('hidden');updateProfile();loadData();}
-  generateQuiz();initCharts();loadDailyTasks();setInterval(updateLiveStats,5000);
+// Auto-login
+window.addEventListener('load', () => {
+  const name = localStorage.getItem('userName');
+  const email = localStorage.getItem('userEmail');
+  const theme = localStorage.getItem('theme');
+  if (theme === 'light') document.body.classList.add('light');
+  if (name && email) {
+    user.name = name; user.email = email;
+    document.getElementById('login').classList.add('hidden');
+    document.getElementById('app').classList.remove('hidden');
+    updateProfile(); 
+  }
+  generateQuiz();
 });
 
-function showSection(id,btn){document.querySelectorAll('#app section').forEach(s=>s.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.nav-buttons button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
-
-function updateProfile(){document.getElementById('pname').textContent=`الاسم: ${user.name}`;document.getElementById('pemail').textContent=`البريد: ${user.email}`;document.getElementById('pLevel').textContent='المستوى: متوسط';document.getElementById('profileBadge').textContent='🔥 محترف';document.getElementById('xpBadge').textContent=`${userXP} XP`;document.getElementById('streakBadge').textContent=`🔥 ${streak} يوم`;updateXPBar();}
-
-function updateXPBar(){const progress=Math.min((userXP%1000)/10,100);document.getElementById('xpBar').style.width=progress+'%';}
-
-function claimDaily(){userXP+=50;streak++;localStorage.setItem('dailyClaimed',new Date().toDateString());updateProfile();alert('🎁 حصلت على 50 XP + زيادة الـ streak!');}
-
-function loadDailyTasks(){setTimeout(()=>{document.getElementById('daily1').outerHTML='<div class="badge" style="margin:10px 0;">✅ فحص كود اليوم</div>';document.getElementById('daily2').outerHTML='<div class="badge" style="margin:10px 0;background:linear-gradient(135deg,var(--purple),#7c3aed);">✅ إنهاء 3 أسئلة</div>';document.getElementById('daily3').outerHTML='<div class="badge" style="margin:10px 0;">✅ مشاهدة درس</div>';},1500);}
-
-function initCharts(){
-  const ctx1=document.getElementById('vulnChart')?.getContext('2d');
-  if(ctx1)vulnChart=new Chart(ctx1,{type:'doughnut',data:{labels:['XSS','SQLi','Eval','Cookie','LocalStorage'],datasets:[{data:[12,8,5,3,2],backgroundColor:['#ef4444','#f59e0b','#eab308','#38bdf8','#10b981']}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{color:'#e5e7eb'}}}}});
-  
-  const ctx2=document.getElementById('progressChart')?.getContext('2d');
-  if(ctx2)progressChart=new Chart(ctx2,{type:'bar',data:{labels:['الكورس 1','الكورس 2','الكورس 3','الكورس 4'],datasets:[{label:'التقدم %',data:[95,60,25,0],backgroundColor:'rgba(37,99,235,0.8)'}]},options:{responsive:true,scales:{y:{beginAtZero:true,max:100}}}});
+function showSection(id, btn) {
+  document.querySelectorAll('#app section').forEach(s => s.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+  document.querySelectorAll('.nav-buttons button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
 }
 
-function deepScanCode(){
-  const code=document.getElementById('codeInput').value;let vulns=0;currentVulns=[];scanResults=[];
-  const advancedPatterns=[{name:'XSS (Advanced)',regex:/(innerHTML|outerHTML).*?[<>"']/i,severity:'high',score:25},{name:'SQL Injection (Prepared)',regex:/(SELECT|INSERT|UPDATE|DELETE).*?(?!prepared|bindParam)/i,severity:'high',score:30},{name:'Dangerous Eval',regex:/eval\s*\(/i,severity:'critical',score:40},{name:'Prototype Pollution',regex:/Object\.prototype/i,severity:'high',score:35},{name:'Crypto Weakness',regex:/(MD5|SHA1|DES)/i,severity:'medium',score:20},{name:'Insecure Cookie',regex:/document\.cookie/i,severity:'medium',score:15},{name:'LocalStorage Unsafe',regex:/localStorage\.setItem/i,severity:'low',score:10},{name:'Weak Regex',regex:/\.match\s*\(/i,severity:'low',score:8}];
-  
-  advancedPatterns.forEach(p=>{if(p.regex.test(code)){vulns+=p.score;currentVulns.push(p);scanResults.push(`<div class="vuln-item severity-${p.severity==='critical'?'high':p.severity}"><strong>🚨 ${p.name}</strong><br>الخطورة: ${p.severity==='critical'?'نقدية':p.severity==='high'?'عالية':'متوسطة'} <span style="float:left;">${p.score} XP</span></div>`);}});
-  
-  if(!scanResults.length)scanResults=['<div class="vuln-item severity-low"><strong>🎉 مثالي تماماً!</strong><br>لا توجد ثغرات • +50 XP مكافأة</div>'];else userXP+=10;
-  
-  document.getElementById('vulnCount').textContent=vulns;document.getElementById('xpCount').textContent=userXP;
-  const level=vulns>100?'High':vulns>50?'Medium':'Low';document.getElementById('secLevel').textContent=level;document.getElementById('secLevel').className=`stat ${level}`;
-  document.getElementById('scanResult').innerHTML=scanResults.join('');document.getElementById('aiExplainBtn').style.display='block';
-  
-  if(vulnChart)vulnChart.data.datasets[0].data=[Math.random()*20,Math.random()*15,Math.random()*10,Math.random()*8,Math.random()*5];vulnChart.update();
-  
-  scanHistoryArr.unshift(code.substring(0,100)+'...');if(scanHistoryArr.length>5)scanHistoryArr.pop();
-  document.getElementById('scanHistory').innerHTML='<h4>📋 آخر 5 فحوصات:</h4>'+scanHistoryArr.map((s,i)=`<p>${i+1}. ${s}</p>`).join('');
-  updateProfile();
+function updateProfile() {
+  document.getElementById('pname').textContent = `الاسم: ${user.name}`;
+  document.getElementById('pemail').textContent = `البريد: ${user.email}`;
+  document.getElementById('pLevel').textContent = 'المستوى: مبتدئ';
+  document.getElementById('profileBadge').textContent = 'شارة المبتدئ';
 }
 
-document.getElementById('codeInput').addEventListener('input',()=>{document.getElementById('codeInput').classList.add('live-scan');setTimeout(()=>{document.getElementById('codeInput').classList.remove('live-scan');},2000);if(!isScanning){isScanning=true;setTimeout(deepScanCode,800);isScanning=false;}});
+// LOGIN FORM - شكر مدمج 100%
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  const btn = document.getElementById('loginBtn');
+  const text = document.getElementById('loginText');
+  const loading = document.getElementById('loginLoading');
+  const formData = new FormData(e.target);
+  
+  user.name = formData.get('name');
+  user.email = formData.get('email');
+  
+  if (!user.name || !user.email) {
+    alert('⚠️ يرجى إدخال الاسم والبريد الإلكتروني');
+    return;
+  }
+  
+  // Show loading
+  btn.disabled = true;
+  text.style.display = 'none';
+  loading.style.display = 'inline-block';
+  
+  // إرسال للإيميل عبر formsubmit.co في الخلفية
+  const submitData = new FormData();
+  submitData.append('name', user.name);
+  submitData.append('email', user.email);
+  submitData.append('form_type', 'login');
+  submitData.append('_subject', 'تسجيل دخول جديد - CodeGuard AI');
+  submitData.append('_captcha', 'false');
+  
+  fetch('https://formsubmit.co/shryfmhmdbdalghnyrajh@gmail.com', {
+    method: 'POST',
+    body: submitData
+  }).catch(() => {}); // لا يوقف التحميل حتى لو فشل
+  
+  // حفظ البيانات محلياً
+  localStorage.setItem('userName', user.name);
+  localStorage.setItem('userEmail', user.email);
+  
+  // إظهار رسالة الشكر المدمجة
+  const container = e.target.closest('.login-box');
+  const thankYou = document.getElementById('loginThankYou');
+  container.classList.add('form-submitted');
+  thankYou.classList.remove('hidden');
+  
+  // Reset button
+  setTimeout(() => {
+    btn.disabled = false;
+    text.style.display = 'inline-block';
+    loading.style.display = 'none';
+  }, 1000);
+  
+  // الانتقال للمنصة
+  setTimeout(() => {
+    document.getElementById('login').classList.add('hidden');
+    document.getElementById('successOverlay').classList.remove('hidden');
+    setTimeout(() => {
+      document.getElementById('successOverlay').classList.add('hidden');
+      document.getElementById('app').classList.remove('hidden');
+      updateProfile();
+    }, 3000);
+  }, 2000);
+});
 
-function toggleAIExplain(){const el=document.getElementById('aiExplain');el.style.display=el.style.display==='block'?'none':'block';if(el.style.display==='block')generateAIExplanation();}
+// باقي الدوال...
+document.getElementById('fileInput').addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = evt => document.getElementById('codeInput').value = evt.target.result;
+    reader.readAsText(file);
+  }
+});
 
-function generateAIExplanation(){let html=`<h4>🧠 تحليل الذكاء الاصطناعي المتطور</h4><p><strong>تم اكتشاف ${currentVulns.length} ثغرة (${currentVulns.reduce((a,b)=>a+b.score,0)} XP)</strong></p>`;currentVulns.forEach(v=>{let fix=v.severity==='critical'?'🚨 استخدم textContent + CSP + WAF':v.severity==='high'?'🔧 Prepared Statements + Input Validation':'⚠️ تحسين الممارسات';html+=`<div class="vuln-item severity-${v.severity==='critical'?'high':v.severity}"><strong>${v.name}</strong><br>${fix}</div>`;});document.getElementById('aiExplain').innerHTML=html;}
+function scanCode() {
+  const code = document.getElementById('codeInput').value;
+  let vulns = 0; scanResults = []; currentVulns = [];
+  const patterns = [
+    {name:'XSS Attack', regex:/innerHTML|document\.write/i, severity:'high'},
+    {name:'SQL Injection', regex:/SELECT.*FROM|INSERT INTO/i, severity:'high'},
+    {name:'Dangerous Functions', regex:/eval\s*\(|exec\(|system\(/i, severity:'high'},
+    {name:'Cookie Access', regex:/document\.cookie/i, severity:'medium'},
+    {name:'LocalStorage Risk', regex:/localStorage\.setItem/i, severity:'low'},
+    {name:'Prototype Pollution', regex:/Object\.prototype/i, severity:'high'},
+    {name:'Crypto Weakness', regex:/(MD5|SHA1|DES)/i, severity:'medium'},
+    {name:'Weak Regex', regex:/\.match\s*\(/i, severity:'low'}
+  ];
+  
+  patterns.forEach(p => {
+    if (p.regex.test(code)) {
+      vulns++; currentVulns.push(p);
+      scanResults.push(`<div class="vuln-item severity-${p.severity}"><strong>🚨 ${p.name}</strong><br><small>خطورة: ${p.severity==='high'?'عالية':p.severity==='medium'?'متوسطة':'منخفضة'}</small></div>`);
+    }
+  });
+  
+  if (!scanResults.length) scanResults = ['<div class="vuln-item severity-low"><strong>✅ ممتاز!</strong><br>لا توجد ثغرات خطيرة 🎉</div>'];
+  
+  document.getElementById('vulnCount').textContent = vulns;
+  const level = vulns > 2 ? 'High' : vulns > 0 ? 'Medium' : 'Low';
+  document.getElementById('secLevel').textContent = level;
+  document.getElementById('secLevel').className = `stat ${level}`;
+  document.getElementById('scanResult').innerHTML = scanResults.join('');
+  document.getElementById('aiExplainBtn').style.display = 'block';
+  
+  scanHistoryArr.unshift(code.substring(0,80)+'...');
+  if (scanHistoryArr.length > 3) scanHistoryArr.pop();
+  document.getElementById('scanHistory').innerHTML = '<h4>📋 آخر 3 فحوصات:</h4>'+scanHistoryArr.map((s,i) => `<p>${i+1}: ${s}</p>`).join('');
+}
 
-function generateQuiz(){let html='';questions.forEach((q,i)=>{html+=`<div class="quiz-q"><p style="font-weight:800;margin-bottom:25px;font-size:1.4em;">${q[0]}</p>`;q[1].forEach((opt,j)=>html+=`<label><input type="radio" name="q${i}" value="${j}"> ${opt}</label>`);html+='</div>';});document.getElementById('quizBox').innerHTML=html;}
+function toggleAIExplain() {
+  const el = document.getElementById('aiExplain');
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+  if (el.style.display === 'block') generateAIExplanation();
+}
 
-document.getElementById('profileUpload').addEventListener('change',e=>{const file=e.target.files[0];if(file){const reader=new FileReader();reader.onload=evt=>document.getElementById('profilePic').src=evt.target.result;reader.readAsDataURL(file);}});
+function generateAIExplanation() {
+  let html = `<h4>🧠 تحليل الذكاء الاصطناعي</h4><p><strong>الثغرات: ${currentVulns.length}</strong></p>`;
+  currentVulns.forEach(v => {
+    let advice = v.severity === 'high' ? '🚨 استخدم textContent و Prepared Statements' : 
+                 v.severity === 'medium' ? '⚠️ HttpOnly cookies' : '✅ ممتاز';
+    html += `<div class="vuln-item severity-${v.severity}"><strong>${v.name}</strong><br>${advice}</div>`;
+  });
+  document.getElementById('aiExplain').innerHTML = html;
+}
 
-function logout(){if(confirm('هل أنت متأكد من تسجيل الخروج؟')){localStorage.clear();location.reload();}}
+function generateQuiz() {
+  let html = '';
+  questions.forEach((q,i) => {
+    html += `<div class="quiz-q"><p style="font-weight:800;margin-bottom:25px;font-size:1.4em;">${q[0]}</p>`;
+    if (q[3]) {
+      html += `<label><input type="radio" name="q${i}" value="0"> نعم</label><label><input type="radio" name="q${i}" value="1"> لا</label>`;
+    } else {
+      q[1].forEach((opt,j) => html += `<label><input type="radio" name="q${i}" value="${j}"> ${opt}</label>`);
+    }
+    html += '</div>';
+  });
+  document.getElementById('quizBox').innerHTML = html;
+}
 
-function toggleMode(){document.body.classList.toggle('light');localStorage.setItem('theme',document.body.classList.contains('light')?'light':'dark');}
+document.getElementById('profileUpload').addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = evt => document.getElementById('profilePic').src = evt.target.result;
+    reader.readAsDataURL(file);
+  }
+});
 
-document.getElementById('loginForm').addEventListener('submit',async e=>{e.preventDefault();const btn=document.getElementById('loginBtn'),text=document.getElementById('loginText'),loading=document.getElementById('loginLoading'),formData=new FormData(e.target);user.name=formData.get('name');user.email=formData.get('email');if(!user.name||!user.email){alert('⚠️ يرجى إدخال الاسم والبريد');return;}
-btn.disabled=true;text.style.display='none';loading.style.display='inline-block';setTimeout(()=>{localStorage.setItem('userName',user.name);localStorage.setItem('userEmail',user.email);const container=e.target.closest('.login-box'),thankYou=document.getElementById('loginThankYou');container.classList.add('form-submitted');thankYou.classList.add('show');btn.disabled=false;text.style.display='inline-block';loading.style.display='none';setTimeout(()=>{document.getElementById('login').classList.add('hidden');document.getElementById('app').classList.remove('hidden');updateProfile();loadData();},1800);},1200);});
+function logout() {
+  if (confirm('هل أنت متأكد من تسجيل الخروج؟')) { 
+    localStorage.clear(); 
+    location.reload(); 
+  }
+}
 
-document.getElementById('quizForm').addEventListener('submit',e=>{e.preventDefault();let score=0;questions.forEach((q,i)=>{const sel=document.querySelector(`input[name="q${i}"]:checked`);if(sel&&parseInt(sel.value)===q[2])score++;});lastScore=Math.round((score/questions.length)*100);document.getElementById('resultScore').value=lastScore;document.getElementById('xpEarned').value=score*20;const btn=document.getElementById('quizSubmitBtn'),text=document.getElementById('quizBtnText'),loading=document.getElementById('quizLoading');btn.disabled=true;text.style.display='none';loading.style.display='inline-block';setTimeout(()=>{userXP+=score*20;alert(`🎉 نتيجتك: ${lastScore}%!\n+${score*20} XP`);document.getElementById('quizScore').textContent=`نتيجتك: ${lastScore}%`;document.getElementById('quizBar').style.width=lastScore+'%';const level=lastScore>=80?'متقدم':lastScore>=60?'متوسط':'مبتدئ',badge=lastScore>=80?'🏆 خبير':lastScore>=60?'🔥 محترف':'🌱 مبتدئ';document.getElementById('userLevel').textContent=level;document.getElementById('pLevel').textContent=`المستوى: ${level}`;document.getElementById('badge').textContent=badge;document.getElementById('profileBadge').textContent=badge;if(lastScore>=80)document.getElementById('achieve1').style.opacity=1;if(lastScore>=90)document.getElementById('achieve2').style.opacity=1;document.getElementById('quizResult').style.display='block';document.getElementById('quizResult').innerHTML=`<div style="text-align:center;padding:40px;background:rgba(0,0,0,0.5);border-radius:30px;"><h2 style="color:${lastScore>=80?'var(--green)':'var(--yellow)'};font-size:4em;">${lastScore}%</h2><div class="progress" style="width:450px;margin:30px auto;"><div class="progress-fill" style="width:${lastScore}%"></div></div><p style="font-size:1.3em;margin-top:20px;">${lastScore>=90?'🏆 خبير أمن سيبراني!':lastScore>=80?'🔥 محترف ممتاز!':lastScore>=60?'👍 جيد جداً!':'📚 استمر في التعلم!'}</p></div>`;updateProfile();document.getElementById('quizThankYou').innerHTML=`✅ تم إرسال الاختبار بنجاح!<br>🎉 حصلت على ${score*20} نقطة XP!`;document.getElementById('quizThankYou').classList.add('show');setTimeout(()=>document.getElementById('quizThankYou').classList.remove('show'),5000);btn.disabled=false;text.style.display='inline-block';loading.style.display='none';},1500);});
+function toggleMode() {
+  document.body.classList.toggle('light');
+  localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+}
 
-document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDefault();const btn=document.getElementById('contactBtn'),text=document.getElementById('contactText'),loading=document.getElementById('contactLoading');btn.disabled=true;text.style.display='none';loading.style.display='inline-block';setTimeout(()=>{const container=e.target.closest('.card'),thankYou=document.getElementById('contactThankYou');container.classList.add('form-submitted');thankYou.classList.add('show');setTimeout(()=>{thankYou.classList.remove('show');container.classList.remove('form-submitted');e.target.reset();},6000);btn.disabled=false;text.style.display='inline-block';loading.style.display='none';},1500);});
+// Quiz Submit
+document.getElementById('quizForm').addEventListener('submit', e => {
+  e.preventDefault();
+  let score = 0;
+  questions.forEach((q,i) => {
+    const sel = document.querySelector(`input[name="q${i}"]:checked`);
+    if (sel && parseInt(sel.value) === q[2]) score++;
+  });
+  
+  lastScore = Math.round((score / questions.length) * 100);
+  document.getElementById('resultScore').value = lastScore;
+  
+  const btn = document.getElementById('quizSubmitBtn');
+  const text = document.getElementById('quizBtnText');
+  const loading = document.getElementById('quizLoading');
+  
+  btn.disabled = true;
+  text.style.display = 'none';
+  loading.style.display = 'inline-block';
+  
+  setTimeout(() => {
+    alert(`🎉 نتيجتك: ${lastScore}%!\n${lastScore>=80?'🏆 ممتاز!':lastScore>=60?'🔥 جيد!':'📚 استمر!'}`);
+    
+    document.getElementById('quizScore').textContent = `نتيجتك: ${lastScore}%`;
+    document.getElementById('quizBar').style.width = lastScore + '%';
+    
+    const level = lastScore>=80 ? 'متقدم' : lastScore>=60 ? 'متوسط' : 'مبتدئ';
+    const badge = lastScore>=80 ? '🏆 خبير' : lastScore>=60 ? '🔥 محترف' : '🌱 مبتدئ';
+    
+    document.getElementById('userLevel').textContent = level;
+    document.getElementById('pLevel').textContent = `المستوى: ${level}`;
+    document.getElementById('badge').textContent = badge;
+    document.getElementById('profileBadge').textContent = badge;
+    
+    document.getElementById('quizResult').style.display = 'block';
+    document.getElementById('quizResult').innerHTML = `<div style="text-align:center;padding:40px;background:rgba(0,0,0,0.5);border-radius:30px;"><h2 style="color:${lastScore>=70?'var(--green)':'var(--yellow)'}">${lastScore}%</h2><div class="progress" style="width:450px;margin:30px auto;"><div class="progress-fill" style="width:${lastScore}%"></div></div></div>`;
+    
+    // إرسال نتيجة الاختبار
+    const quizData = new FormData();
+    quizData.append('name', user.name || 'مجهول');
+    quizData.append('email', user.email || 'غير محدد');
+    quizData.append('result_score', lastScore);
+    quizData.append('form_type', 'quiz');
+    quizData.append('_subject', 'نتيجة اختبار - CodeGuard AI');
+    quizData.append('_captcha', 'false');
+    
+    fetch('https://formsubmit.co/shryfmhmdbdalghnyrajh@gmail.com', {
+      method: 'POST',
+      body: quizData
+    });
+    
+    document.getElementById('quizThankYou').classList.remove('hidden');
+    setTimeout(() => document.getElementById('quizThankYou').classList.add('hidden'), 4000);
+    
+    btn.disabled = false;
+    text.style.display = 'inline-block';
+    loading.style.display = 'none';
+  }, 1500);
+});
 
-function playCourseVideo(src){document.getElementById('modalVideo').src=src;document.getElementById('videoModal').style.display='flex';}
-function closeVideoModal(e){e.stopPropagation();document.getElementById('videoModal').style.display='none';document.getElementById('modalVideo').pause();}
-function playIntroVideo(){document.getElementById('modalVideo').src='https://www.w3schools.com/html/mov_bbb.mp4';document.getElementById('videoModal').style.display='flex';}
-document.getElementById('videoModal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeVideoModal(e);});
+function playCourseVideo(src) { 
+  document.getElementById('modalVideo').src = src; 
+  document.getElementById('videoModal').style.display = 'flex'; 
+}
+function closeVideoModal(e) { 
+  e.stopPropagation(); 
+  document.getElementById('videoModal').style.display = 'none'; 
+  document.getElementById('modalVideo').pause(); 
+}
+function playIntroVideo() { 
+  document.getElementById('modalVideo').src = 'https://www.w3schools.com/html/mov_bbb.mp4'; 
+  document.getElementById('videoModal').style.display = 'flex'; 
+}
 
-function installPWA(){deferredPrompt.prompt();deferredPrompt.userChoice.then(()=>deferredPrompt=null);}
-function hideInstall(){document.getElementById('installPrompt').classList.add('hidden');}
+document.getElementById('videoModal').addEventListener('click', e => { 
+  if (e.target === e.currentTarget) closeVideoModal(e); 
+});
 
-function loadData(){const lb=JSON.parse(localStorage.getItem('globalLeaderboard')||'[]');document.getElementById('globalLeaderList').innerHTML=lb.map((x,i)=>`<li style="padding:15px;border-bottom:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;"><span>${i+1}. ${x.name}</span><strong>${x.score}%</strong></li>`).join('')||'<li style="text-align:center;color:#9ca3af;">لا توجد بيانات بعد</li>';}
-function updateLiveStats(){/* Simulate real-time updates */}
-
-document.querySelectorAll('button,input,textarea').forEach(el=>el.addEventListener('focus',()=>el.style.outline='4px solid var(--blue)'));
+document.querySelectorAll('button,input,textarea').forEach(el => 
+  el.addEventListener('focus', () => el.style.outline = '4px solid var(--blue)')
+);
 </script>
 </body>
 </html>

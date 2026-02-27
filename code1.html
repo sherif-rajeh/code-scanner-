@@ -1,0 +1,1160 @@
+
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>   |  اساسيات الامن السيبراني| </title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles2.css">
+
+    <style>
+        .course-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .course-image {
+            max-width: 200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .stats-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .description-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .course-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .course-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .course-content {
+            padding: 2rem;
+            min-height: 400px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .lectures-section {
+            margin-top: 2rem;
+        }
+
+        .lecture-item {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .lecture-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .lecture-header {
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .lecture-number {
+            background: #007bff;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-left: 1rem;
+        }
+
+        .lecture-title {
+            flex: 1;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .lecture-meta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .expand-icon {
+            transition: transform 0.3s ease;
+        }
+        .folder-item.expanded > .folder-header .folder-expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .lecture-content {
+            padding: 1.5rem;
+            display: none;
+        }
+
+        .lecture-content.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .item-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            border-left: 4px solid #007bff;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .item-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .item-card.video {
+            border-left-color: #28a745;
+        }
+
+        .item-card.exam {
+            border-left-color: #dc3545;
+        }
+
+        .item-card.document {
+            border-left-color: #ffc107;
+        }
+
+        .item-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .item-icon {
+            font-size: 1.5rem;
+        }
+
+        .purchase-section {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .purchase-section.purchased {
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+        }
+
+        .purchase-section.expired {
+            background: linear-gradient(135deg, #636e72 0%, #2d3436 100%);
+        }
+
+        .btn-modern {
+            background: white;
+            color: #333;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-modern:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            color: #333;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #6c757d;
+        }
+
+        .empty-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .main-content {
+            margin-top: 60px;
+        }
+
+        /* Folder Styles */
+        .folder-item {
+            border: 1px solid #e9ecef;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .folder-item:hover {
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .folder-header {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-bottom: 1px solid #ffd43b;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .folder-header:hover {
+            background: linear-gradient(135deg, #ffeaa7 0%, #ffd43b 100%);
+        }
+
+        .folder-content {
+            padding: 1rem;
+            background-color: #f8f9fa;
+            display: none;
+        }
+
+        .folder-content.expanded {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        .folder-lecture-count {
+            background: #ffc107;
+            color: #212529;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .folder-expand-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .folder-icon {
+            color: #ffc107;
+            font-size: 2rem;
+        }
+
+        .no-folder-section {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .no-folder-title {
+            color: #6c757d;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .child-folders {
+            margin-right: 20px;
+            margin-bottom: 1rem;
+            border-right: 2px solid #ffc107;
+            padding-right: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .course-container {
+                margin: 0 auto 1rem auto;
+                border-radius: 15px;
+                width: 98%;
+            }
+
+            .course-hero {
+                padding: 2rem 1rem;
+            }
+
+            .course-title {
+                font-size: 1.8rem;
+            }
+
+            .course-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .course-content {
+                padding: 1rem;
+            }
+
+            .lecture-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .lecture-meta {
+                flex-wrap: wrap;
+            }
+
+            .folder-header {
+                padding: 1rem;
+            }
+
+            .folder-header h4 {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .course-header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .course-header .d-flex {
+                flex-wrap: wrap;
+                gap: 10px !important;
+            }
+
+            .lecture-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .folder-item {
+                margin-right: 10px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Student Navigation Bar -->
+<nav class="navbar navbar-light student-page fixed-top">
+    <div class="container">
+        <div class="d-flex align-items-center">
+            <a href="index.html" class="logout-btn text-decoration-none">
+                <span class="material-symbols-outlined">logout</span>
+                <span class="d-none d-md-inline">تسجيل الخروج</span>
+            
+                    </div>
+        <div class="navbar-brand">
+            <a href="courses.html" class="back-btn text-decoration-none me-3" title="العودة للوحة الطالب">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </a>
+            <a href="index.html"><img src="images/logo.png" alt="Logo" class="img-fluid" style="max-width: 80px;" /></a>
+        </div>
+    </div>
+</nav>
+
+<div class="main-content student-page">
+    <!-- Course Header -->
+    <div class="course-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="mb-3">    اساسيات الامن السيبراني</h1>
+                    <div class="d-flex gap-3 align-items-center flex-wrap">
+                       
+                                                                            
+                                                                                                                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                                            <img src="logo2.png"
+                            class="course-image img-fluid" alt="صورة الكورس">
+                                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <!-- Course Description -->
+        
+        <!-- Course Statistics -->
+        <div class="stats-card">
+            
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <h3 class="text-primary">1</h3>
+                    <p class="text-muted mb-0">محاضرة</p>
+                </div>
+                <div class="col-md-2">
+                    <h3 class="text-warning">1</h3>
+                    <p class="text-muted mb-0">مجلد</p>
+                </div>
+                <div class="col-md-2">
+                    <h3 class="text-success">1</h3>
+                    <p class="text-muted mb-0">فيديو</p>
+                </div>
+                <div class="col-md-2">
+                    <h3 class="text-danger">1</h3>
+                    <p class="text-muted mb-0">اختبار</p>
+                </div>
+                <div class="col-md-3">
+                    <h3 class="text-info">1</h3>
+                    <p class="text-muted mb-0">ملف</p>
+                </div>
+            </div>
+        </div>
+
+       
+        
+        <!-- Course Lock Message -->
+        
+        <!-- Course Content -->
+ <!-- Folder -->
+<div class="folder-item mb-3" style="margin-right: 0px;" data-folder-id="1542">
+    
+    <div class="folder-header" onclick="toggleFolder(1542)">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+                <span class="material-symbols-outlined folder-icon ms-2">folder</span>
+                <div>
+                    <h4 class="mb-1">اساسيات</h4>
+                    <small class="text-muted">1 محاضرة</small>
+                </div>
+            </div>
+
+            <!-- سهم الفتح -->
+            <span class="material-symbols-outlined folder-expand-icon">
+                expand_more
+            </span>
+        </div>
+    </div>
+
+    <!-- Folder Content -->
+    <div class="folder-content" id="folder-content-1542">
+
+        <!-- Lecture -->
+        <div class="lecture-item" data-lecture-id="1">
+            <div class="lecture-header" onclick="toggleLecture(1)">
+                <div class="d-flex align-items-center">
+                    <div class="lecture-number">1</div>
+                    <div class="lecture-title">مقدمة في الأمن السيبراني</div>
+                </div>
+
+                <div class="lecture-meta">
+                    <span><i class="fas fa-play-circle"></i> فيديو</span>
+                    <span class="material-symbols-outlined expand-icon">keyboard_arrow_down</span>
+                </div>
+            </div>
+
+            <!-- Lecture Content -->
+            <div class="lecture-content" id="content-1">
+
+                <!-- Video -->
+                <div class="item-card video" onclick="window.open('videos/video1.mp4','_blank')">
+                    <div class="item-info">
+                        <i class="fas fa-video item-icon text-success"></i>
+                        <div>
+                            <strong>فيديو الدرس</strong><br>
+                            <small class="text-muted">video</small>
+                        </div>
+                    </div>
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+
+                <!-- Document -->
+                <div class="item-card document" onclick="window.open('files/cyber security.pdf','_blank')">
+                    <div class="item-info">
+                        <i class="fas fa-file-word item-icon text-warning"></i>
+                        <div>
+                            <strong>ملف الشرح</strong><br>
+                            <small class="text-muted">cyber security</small>
+                        </div>
+                    </div>
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+   </div>
+                    </div>
+    </div>
+            </div>
+    </div>
+                        
+                    <!-- Display lectures without folders -->
+                                                </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+/* SweetAlert modal margins */
+.swal2-popup {
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+}
+
+/* Bootstrap modal margins */
+.modal-dialog {
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+}
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// Toggle lecture content
+function toggleLecture(lectureId) {
+    const content = document.getElementById('content-' + lectureId);
+    const item = content.closest('.lecture-item');
+    const icon = item.querySelector('.expand-icon');
+
+    if (content.style.display === 'none' || content.style.display === '') {
+        content.style.display = 'block';
+        item.classList.add('expanded');
+        icon.textContent = 'keyboard_arrow_up';
+    } else {
+        content.style.display = 'none';
+        item.classList.remove('expanded');
+        icon.textContent = 'keyboard_arrow_down';
+    }
+}
+
+// Toggle folder content
+function toggleFolder(folderId) {
+    const content = document.getElementById('folder-content-' + folderId);
+    const folder = content.closest('.folder-item');
+    const icon = folder.querySelector('.folder-expand-icon');
+
+    if (content.style.display === 'none' || content.style.display === '') {
+        content.style.display = 'block';
+        content.classList.add('expanded');
+        folder.classList.add('expanded');
+        icon.textContent = 'expand_more';
+    } else {
+        content.style.display = 'none';
+        content.classList.remove('expanded');
+        folder.classList.remove('expanded');
+        icon.textContent = 'expand_more';
+    }
+}
+
+// Open item (video, exam, document)
+function openItem(type, itemId, courseId) {
+    let url = '';
+    switch(type) {
+        case 'video':
+            url = `watch_video.php?video_id=${itemId}&course_id=${courseId}`;
+            break;
+        case 'exam':
+            url = `exam_results.php?exam_id=${itemId}&course_id=${courseId}`;
+            break;
+        case 'document':
+            url = `download_document.php?document_id=${itemId}&course_id=${courseId}`;
+            break;
+    }
+
+    if (url) {
+        window.location.href = url;
+    }
+}
+
+$(document).ready(function() {
+    let currentCourseData = {};
+    let appliedCoupon = null;
+
+    // Purchase button click - opens modal
+    $('.purchase-btn').click(function() {
+        const courseId = $(this).data('course-id');
+        const courseTitle = $(this).data('course-title');
+        const studentBalance = parseFloat($(this).data('student-balance'));
+
+        currentCourseData = {
+            courseId: courseId,
+            courseTitle: courseTitle,
+            studentBalance: studentBalance
+        };
+
+        // Reset modal state
+        appliedCoupon = null;
+        $('#modalCoupon').val('');
+        $('#modalCouponResult').html('');
+        $('#modalBalanceError').hide();
+
+        // Load course data and show modal
+        loadCourseDataForModal(courseId);
+    });
+
+    function loadCourseDataForModal(courseId) {
+        // Show loading in modal
+        $('#modalCourseInfo').html('<div class="text-center"><div class="spinner-border" role="status"></div></div>');
+        $('#modalPriceDisplay').html('');
+        $('#modalPaymentMethods').html('');
+
+        // Fetch course data from server
+        $.ajax({
+            url: 'get_course_purchase_data.php',
+            method: 'POST',
+            data: { course_id: courseId },
+            dataType: 'json',
+            success: function(response) {
+                if (response.status === 'success') {
+                    const course = response.course;
+                    currentCourseData.originalPrice = parseFloat(course.price);
+                    currentCourseData.discountPrice = course.discount_price ? parseFloat(course.discount_price) : null;
+                    currentCourseData.hasDiscount = course.has_discount;
+                    currentCourseData.finalPrice = parseFloat(course.effective_price);
+
+                    // Update modal content
+                    updateModalContent(course);
+
+                    // Show modal
+                    $('#purchaseModal').modal('show');
+                } else {
+                    Swal.fire('خطأ', response.message || 'فشل في تحميل بيانات الكورس', 'error');
+                }
+            },
+            error: function() {
+                Swal.fire('خطأ', 'حدث خطأ أثناء تحميل بيانات الكورس', 'error');
+            }
+        });
+    }
+
+    function updateModalContent(course) {
+        // Course info
+        $('#modalCourseInfo').html(`
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">${course.title}</h6>
+                    <p class="card-text text-muted">${course.grade_name}</p>
+                </div>
+            </div>
+        `);
+
+        // Price display
+        updatePriceDisplay();
+
+        // Payment methods
+        updatePaymentMethods();
+    }
+
+    function updatePriceDisplay() {
+        let priceHtml = '';
+
+        if (appliedCoupon) {
+            // Show price with coupon applied
+            const basePrice = currentCourseData.hasDiscount ? currentCourseData.discountPrice : currentCourseData.originalPrice;
+            priceHtml = `
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-center mb-3">
+                            <div class="discount-price-container position-relative">
+                                <!-- Final price after coupon -->
+                                <div class="discount-price-badge">
+                                    <span class="material-symbols-outlined">confirmation_number</span>
+                                    <span>${currentCourseData.finalPrice.toFixed(0)}</span>
+                                    <span>جنيه</span>
+                                </div>
+                                <!-- Base price crossed out -->
+                                <div class="original-price-crossed text-center mt-2">
+                                    ${basePrice.toFixed(0)} جنيه
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            ${currentCourseData.hasDiscount ? `
+                                <div class="badge bg-warning text-dark mb-1">
+                                    <i class="fas fa-tag me-1"></i>
+                                    خصم الكورس: ${(currentCourseData.originalPrice - currentCourseData.discountPrice).toFixed(0)} جنيه
+                                </div><br>
+                            ` : ''}
+                            <div class="badge bg-success">
+                                <i class="fas fa-ticket-alt me-1"></i>
+                                خصم الكوبون: ${appliedCoupon.discount_amount.toFixed(0)} جنيه
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else {
+            // Show regular or discount price
+            if (currentCourseData.hasDiscount) {
+                priceHtml = `
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-center mb-3">
+                                <div class="discount-price-container position-relative">
+                                    <!-- Discount price badge -->
+                                    <div class="discount-price-badge">
+                                        <span class="material-symbols-outlined">local_offer</span>
+                                        <span>${currentCourseData.finalPrice.toFixed(0)}</span>
+                                        <span>جنيه</span>
+                                    </div>
+                                    <!-- Original price crossed out -->
+                                    <div class="original-price-crossed text-center mt-2">
+                                        ${currentCourseData.originalPrice.toFixed(0)} جنيه
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="badge bg-success mb-2">
+                                    <i class="fas fa-tag me-1"></i>
+                                    وفر ${(currentCourseData.originalPrice - currentCourseData.finalPrice).toFixed(0)} جنيه
+                                    (${Math.round(((currentCourseData.originalPrice - currentCourseData.finalPrice) / currentCourseData.originalPrice) * 100)}%)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                priceHtml = `
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="regular-price-badge d-inline-flex">
+                                <span>${currentCourseData.finalPrice.toFixed(0)}</span>
+                                <span>جنيه</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        $('#modalPriceDisplay').html(priceHtml);
+    }
+
+    function updatePaymentMethods() {
+        if (currentCourseData.finalPrice <= 0) {
+            $('#modalPaymentMethods').html('<div class="alert alert-success">هذا الكورس مجاني!</div>');
+            $('#modalBalanceError').hide();
+            return;
+        }
+
+        const fawryConfigured = false;
+        const paymobConfigured = false;
+        const canPayWithBalance = currentCourseData.studentBalance >= currentCourseData.finalPrice;
+
+        let paymentHtml = '';
+
+        // Balance option
+        paymentHtml += `
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="modalPaymentMethod" id="modalPayBalance" value="balance"
+                       ${!canPayWithBalance ? 'disabled' : ''} ${canPayWithBalance ? 'checked' : ''}>
+                <label class="form-check-label" for="modalPayBalance">
+                    الرصيد (متاح: ${currentCourseData.studentBalance.toFixed(2)} جنيه)
+                </label>
+            </div>
+        `;
+
+        // Fawry option
+        if (fawryConfigured) {
+            paymentHtml += `
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="modalPaymentMethod" id="modalPayFawry" value="fawry"
+                           ${!canPayWithBalance ? 'checked' : ''}>
+                    <label class="form-check-label" for="modalPayFawry">
+                        Fawry
+                    </label>
+                </div>
+            `;
+        }
+
+        // PayMob option
+        if (paymobConfigured) {
+            paymentHtml += `
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="modalPaymentMethod" id="modalPayPayMob" value="paymob"
+                           ${!canPayWithBalance && !fawryConfigured ? 'checked' : ''}>
+                    <label class="form-check-label" for="modalPayPayMob">
+                        فيزا
+                    </label>
+                </div>
+            `;
+        }
+
+        $('#modalPaymentMethods').html(paymentHtml);
+
+        // Show/hide balance error
+        if (!canPayWithBalance && !fawryConfigured && !paymobConfigured) {
+            $('#modalBalanceError').show();
+        } else {
+            $('#modalBalanceError').hide();
+        }
+    }
+
+    // Apply coupon in modal
+    $('#modalApplyCoupon').click(function() {
+        const couponCode = $('#modalCoupon').val().trim();
+        const resultDiv = $('#modalCouponResult');
+
+        if (!couponCode) {
+            resultDiv.html('<small class="text-danger">الرجاء إدخال كود الكوبون</small>');
+            return;
+        }
+
+        // Show loading
+        $(this).prop('disabled', true).text('جاري التحقق...');
+        resultDiv.html('<small class="text-info">جاري التحقق من الكوبون...</small>');
+
+        $.ajax({
+            url: 'validate_coupon.php',
+            method: 'POST',
+            data: {
+                coupon_code: couponCode,
+                course_id: currentCourseData.courseId
+            },
+            dataType: 'json',
+            success: function(response) {
+                if (response.status === 'success') {
+                    appliedCoupon = {
+                        coupon_id: response.coupon_id,
+                        discount_amount: parseFloat(response.discount_amount),
+                        original_price: parseFloat(response.original_price)
+                    };
+                    currentCourseData.finalPrice = parseFloat(response.final_price);
+
+                    // Update displays
+                    updatePriceDisplay();
+                    updatePaymentMethods();
+
+                    // Show success message
+                    resultDiv.html(`
+                        <small class="text-success">
+                            <span class="material-symbols-outlined" style="font-size: 14px;">check_circle</span>
+                            تم تطبيق خصم ${response.discount_amount} جنيه
+                        </small>
+                    `);
+                } else {
+                    resultDiv.html(`<small class="text-danger">${response.message}</small>`);
+                }
+            },
+            error: function() {
+                resultDiv.html('<small class="text-danger">حدث خطأ أثناء التحقق من الكوبون</small>');
+            },
+            complete: function() {
+                $('#modalApplyCoupon').prop('disabled', false).text('تطبيق');
+            }
+        });
+    });
+
+    // Confirm purchase in modal
+    $('#modalConfirmPurchase').click(function() {
+        const selectedPaymentMethod = $('input[name="modalPaymentMethod"]:checked').val();
+
+        // Validation
+        if (currentCourseData.finalPrice > 0 && !selectedPaymentMethod) {
+            Swal.fire('خطأ', 'الرجاء اختيار طريقة الدفع أولاً.', 'error');
+            return;
+        }
+
+        if (currentCourseData.finalPrice > 0 && selectedPaymentMethod === 'balance' && currentCourseData.studentBalance < currentCourseData.finalPrice) {
+            Swal.fire('خطأ', 'رصيدك غير كافٍ لإتمام عملية الشراء باستخدام الرصيد.', 'error');
+            return;
+        }
+
+        // Close modal and show confirmation
+        $('#purchaseModal').modal('hide');
+
+        let confirmationHtml = `
+            <p>هل أنت متأكد من شراء الكورس:</p>
+            <h5>${currentCourseData.courseTitle}</h5>
+        `;
+
+        if (appliedCoupon) {
+            confirmationHtml += `
+                <p>السعر الأصلي: <span style="text-decoration: line-through;">${currentCourseData.originalPrice.toFixed(2)} جنيه</span></p>
+                <p>الخصم: <span style="color: #dc3545;">${appliedCoupon.discount_amount.toFixed(2)} جنيه</span></p>
+                <p>السعر النهائي: <strong style="color: #28a745;">${currentCourseData.finalPrice.toFixed(2)} جنيه</strong></p>
+            `;
+        } else {
+            confirmationHtml += `<p>بسعر: <strong>${currentCourseData.finalPrice.toFixed(2)} جنيه</strong></p>`;
+        }
+
+        if (currentCourseData.finalPrice > 0) {
+            confirmationHtml += `<p><strong>طريقة الدفع:</strong> ${selectedPaymentMethod === 'balance' ? 'الرصيد المتاح' : selectedPaymentMethod === 'paymob' ? 'فيزا' : 'Fawry'}</p>`;
+        } else {
+            confirmationHtml += `<p><strong>طريقة الدفع:</strong> مجاني</p>`;
+        }
+
+        Swal.fire({
+            title: 'تأكيد الشراء',
+            html: confirmationHtml,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'نعم، اشتري الآن',
+            cancelButtonText: 'إلغاء',
+            confirmButtonColor: '#28a745',
+            cancelButtonColor: '#dc3545'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                processPurchase(selectedPaymentMethod);
+            }
+        });
+    });
+
+    function processPurchase(selectedPaymentMethod) {
+        // Show processing message
+        Swal.fire({
+            title: 'جاري معالجة طلبك',
+            html: 'الرجاء الانتظار...',
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+
+        // Prepare purchase data - NO PRICE FROM CLIENT
+        let purchaseData = {
+            course_id: currentCourseData.courseId,
+            student_id: 1223        };
+
+        // Add payment method only if needed
+        if (currentCourseData.finalPrice > 0) {
+            purchaseData.payment_method = selectedPaymentMethod;
+        }
+
+        // Add coupon data if applicable
+        if (appliedCoupon) {
+            purchaseData.coupon_code = $('#modalCoupon').val().trim();
+        }
+
+        $.ajax({
+            url: 'purchase_course.php',
+            method: 'POST',
+            data: purchaseData,
+            dataType: 'json',
+            success: function(response) {
+                Swal.close();
+                if (response.status === 'success') {
+                    Swal.fire({
+                        title: 'تم الشراء بنجاح!',
+                        html: `${response.message}<br>` +
+                              (response.new_balance !== undefined ? `<strong>رصيدك الحالي: ${parseFloat(response.new_balance).toFixed(2)} جنيه</strong>` : ''),
+                        icon: 'success',
+                        confirmButtonText: 'حسناً'
+                    }).then(() => {
+                        location.reload();
+                    });
+                } else if (response.status === 'fawry_redirect') {
+                    Swal.fire({
+                        title: 'جاري التوجيه إلى Fawry',
+                        text: response.message,
+                        icon: 'info',
+                        showConfirmButton: false,
+                        timer: 2000,
+                        didOpen: () => { Swal.showLoading(); }
+                    }).then(() => {
+                        if(response.fawry_url) {
+                            window.location.href = response.fawry_url;
+                        } else {
+                            Swal.fire('خطأ', 'لم يتم توفير رابط Fawry.', 'error');
+                        }
+                    });
+                } else if (response.status === 'paymob_redirect') {
+                    Swal.fire({
+                        title: 'جاري التوجيه إلى PayMob',
+                        text: response.message,
+                        icon: 'info',
+                        showConfirmButton: false,
+                        timer: 2000,
+                        didOpen: () => { Swal.showLoading(); }
+                    }).then(() => {
+                        if(response.paymob_iframe_url) {
+                            // Open PayMob in an iframe modal
+                            const iframeModal = `
+                                <div class="modal fade" id="paymobModal" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog modal-fullscreen">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">PayMob دفع</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body p-0">
+                                                <iframe src="${response.paymob_iframe_url}" style="width:100%; height:90vh; border:none;"></iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            $('body').append(iframeModal);
+                            const modal = new bootstrap.Modal(document.getElementById('paymobModal'));
+                            modal.show();
+                            
+                            // Handle modal close event
+                            document.getElementById('paymobModal').addEventListener('hidden.bs.modal', function () {
+                                // Redirect to course page after modal is closed
+                                window.location.href = `view_course.php?course_id=${currentCourseData.courseId}`;
+                            });
+                        } else {
+                            Swal.fire('خطأ', 'لم يتم توفير رابط PayMob.', 'error');
+                        }
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'خطأ',
+                        text: response.message,
+                        icon: 'error',
+                        confirmButtonText: 'حسناً'
+                    });
+                }
+            },
+            error: function(xhr) {
+                Swal.fire({
+                    title: 'خطأ',
+                    text: 'حدث خطأ أثناء معالجة طلبك',
+                    icon: 'error',
+                    confirmButtonText: 'حسناً'
+                });
+                console.error('Error:', xhr);
+            }
+        });
+    }
+
+    // Auto-expand first folder
+    document.querySelectorAll('.folder-item:first-child').forEach(folder => {
+        const folderId = folder.dataset.folderId;
+        toggleFolder(folderId);
+    });
+
+    // Auto-expand first lecture in each folder
+    document.querySelectorAll('.folder-content .lecture-item:first-child').forEach(lecture => {
+        const lectureId = lecture.dataset.lectureId;
+        toggleLecture(lectureId);
+    });
+
+    // Auto-expand first lecture without folder
+    const firstNoFolderLecture = document.querySelector('.no-folder-section .lecture-item:first-child');
+    if (firstNoFolderLecture) {
+        const lectureId = firstNoFolderLecture.dataset.lectureId;
+        toggleLecture(lectureId);
+    }
+});
+</script>
+
+<!-- SweetAlert2 CDN for Global Alerts -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="protection-simple.js"></script>
+<footer class="footer-with-swave">
+<div>
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+        <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0,0,0,0.7)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0,0,0,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(0,0,0,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="0" />
+        </g>
+    </svg>
+    </div>
+    <!--Waves end-->
+</div>
+    <div class="footer-content text-white bg-black py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                   
+                    <p class="mb-0" style="direction: ltr;">
+                        Developed By  sherif rajeh</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"66a7f052de964bdc93fbdafb8fa7bb2f","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

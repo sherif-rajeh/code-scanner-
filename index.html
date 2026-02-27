@@ -1,449 +1,922 @@
-<!DOCTYPE html>
+
+
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🛡️ CodeGuard AI - منصة الأمن السيبراني الرسمية</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-<meta name="theme-color" content="#2563eb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="author" content="Developer &amp; Designer: Yassin Ghazy - (0122 466 1244)">
+    <meta name="theme-color" content="#4a6bff">
+    <meta name="color-scheme" content="light">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Performance hints -->
+    <meta name="format-detection" content="telephone=no">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//unpkg.com">
+
+    <title> code scnner</title>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"></noscript>
+
+    <!-- Critical CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Non-critical CSS - load asynchronously -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://unpkg.com/aos@next/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <!-- Fallback for browsers without JS -->
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    </noscript>
+    <!-- Custom index page styles -->
+    <link rel="stylesheet" href="css/index-custom.css">
+
+    <!-- Notifications CSS for logged-in users -->
+        <style>
+    /* Notifications dropdown styles */
+    .dropdown-menu {
+        display: block;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.3s linear;
+        z-index: 1050;
+    }
+
+    .dropdown-menu.show {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    #notificationsDropdown {
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        color: #6c757d;
+        padding: 0.25rem 0.5rem;
+    }
+
+    #notificationsDropdown:hover {
+        color: #007bff;
+        background: rgba(0, 123, 255, 0.1);
+        border-radius: 0.375rem;
+    }
+
+    .position-absolute.badge {
+        font-size: 0.6rem;
+        min-width: 1.2rem;
+        height: 1.2rem;
+        line-height: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+        .dropdown-menu {
+            width: 300px !important;
+            max-width: calc(100vw - 30px);
+            left: auto !important;
+            right: 0 !important;
+            transform: translateX(-10px);
+        }
+    }
+
+    @media (max-width: 576px) {
+        .dropdown-menu {
+            width: 280px !important;
+        }
+    }
+    </style>
+    
+    <link rel="preload" href="css/fonts/CooperArabic.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" href="css/fonts/Almarai-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+    <!-- Standard Favicons -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" href="images/title/logo-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="images/title/logo-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/title/logo-192x192.png" sizes="192x192">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Apple Touch Icon (for iOS devices) -->
+    <link rel="apple-touch-icon" href="images/title/logo-192x192.png">
+
+    <!-- Microsoft Tile Icon (for Windows) -->
+    <meta name="msapplication-TileImage" content="images/title/logo-270x270.png">
+    <meta name="description" content="منصة تعليمية متكاملة لشرح الانن السيبراني و اكتشاف الثغرات">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="كورسات,لوجاريزم,Logarithm,code scanner">
+    
+    <meta property="og:title" content="Logarithm Academy | code scanner" />
+    <meta property="og:description" content="منصة تعليمية متكاملة لشرح الانن السيبراني و اكتشاف الثغرات" />
+    <meta property="og:image" content="https://logarithm-academy.com/images/logo.png" />
+    <meta property="og:url" content="https://logarithm-academy.com/" />
+    <meta property="og:type" content="website" /> 
+  </head>
+  <body class="font-family-sans-serif preload" dir="rtl">
+    <!-- Navbar -->
+    
+    <div class="fixed-top w-100 bg-white shadow-sm p-3 animate__animated animate__fadeInDown">
+        <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-2 gap-md-4">
+            <!-- Mobile-first layout: Icon-only buttons with proper spacing -->
+          
+            
+    <div class="dropdown">
+        <button class="btn position-relative p-2" type="button" id="notificationsDropdown" aria-expanded="false">
+            <span class="material-symbols-outlined">notifications</span>
+            
+        </button>
+        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown" style="width: 350px; max-height: 400px; overflow-y: auto;"><li><h6 class="dropdown-header">الإشعارات</h6></li>
+            <li>
+                <a class="dropdown-item "
+                   href="javascript:void(0);"
+                   data-notification-id="1"
+                    onclick="return markAsRead(1, this)">
+                   
+                    <div class="text-wrap">افضل منصه لتعلم الامن السيبراني واكتشاف الثغرات</div>
+                </a>
+            </li>
+            <li><hr class="dropdown-divider"></li><li></div></div>
+            <a href="student_dashboard.html" class="btn btn-danger text-white rounded-pill px-2 px-md-4 py-1 py-md-2 d-flex align-items-center">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span class="d-none d-lg-inline ms-1"> الصفحه الرئيسه</span>
+            </a>
+            <!-- Welcome message: hidden on mobile, visible on larger screens -->
+            <span class="welcome-message d-none d-lg-inline text-nowrap">اهلا شريف </span>
+        </div>
+        <a href="index.html" class="text-decoration-none">
+            <img src="images/logo.png" alt="<?php echo PLATFORM_NAME; ?>" class="img-fluid" style="max-width: 64px;" />
+        </a>
+    </div>
+    </div>
+    <div class="main-content">
+        <div class="mt-12 mb-4">
+            
+    <!-- Enhanced Hero Section -->
+    <section class="hero-section py-5">
+        <div class="container">
+            <div class="row align-items-center g-4">
+            <!-- Content Section -->
+            <div class="col-lg-6 text-center">
+                <svg class="gear-animation" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#2563eb" d="M487.4 315.7l-42.6-24.6c4.3-23.2 4.3-47.6 0-70.8l42.6-24.6c4.9-2.8 7.1-8.6 5.5-14-11.1-35.6-30-67.8-54.7-94.6-3.8-4.1-10.2-5.1-15.8-2.3L380.8 110c-20.1-17.9-43.3-31.2-68.6-39.1l-4.1-48.4c-.3-5.9-5.3-10.5-11.2-10.5h-92.7c-5.9 0-10.9 4.6-11.2 10.5L188.9 71c-25.3 7.9-48.5 21.2-68.6 39.1l-40.8-23.4c-5.6-2.8-12-1.8-15.8 2.3-24.7 26.7-43.6 58.9-54.7 94.6-1.7 5.4.6 11.2 5.5 14L56.1 222.2c-4.3 23.2-4.3 47.6 0 70.8L13.5 317.6c-4.9 2.8-7.1 8.6-5.5 14 11.1 35.6 30 67.8 54.7 94.6 3.8 4.1 10.2 5.1 15.8 2.3l40.8-23.4c20.1 17.9 43.3 31.2 68.6 39.1l4.1 48.4c.3 5.9 5.3 10.5 11.2 10.5h92.7c5.9 0 10.9-4.6 11.2-10.5l4.1-48.4c25.3-7.9 48.5-21.2 68.6-39.1l40.8 23.4c5.6 2.8 12 1.8 15.8-2.3 24.7-26.7 43.6-58.9 54.7-94.6 1.5-5.4-.7-11.2-5.6-14zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z"/>
+                </svg>
+
+                <svg class="circuit-animation" width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12H7M7 12C7 10.8954 7.89543 10 9 10H15C16.1046 10 17 10.8954 17 12M7 12C7 13.1046 7.89543 14 9 14H15C16.1046 14 17 13.1046 17 12M17 12H21M9 6V10M15 6V10M9 14V18M15 14V18M5 6H7M17 6H19M5 18H7M17 18H19" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="9" cy="6" r="1" fill="#10b981"/>
+                    <circle cx="15" cy="6" r="1" fill="#10b981"/>
+                    <circle cx="9" cy="18" r="1" fill="#10b981"/>
+                    <circle cx="15" cy="18" r="1" fill="#10b981"/>
+                    <rect x="8" y="11" width="2" height="2" fill="#10b981"/>
+                    <rect x="14" y="11" width="2" height="2" fill="#10b981"/>
+                </svg>
+                <div id="welcomeMessage">
+                    <h2 class="display-4 animate__animated animate__fadeInDown animate__delay-1s">code <span class="text-header font-cop">scanner</span></h2>
+                    <h3 class="animate__animated animate__fadeInUp animate__delay-2s">مرحبًا بك في المنصه </h3>
+                </div>
+            </div>
+
+            <!-- Image Section -->
+            <div class="col-lg-6">
+                <div class="hero-image-container" data-aos="fade-left">
+                    <div class="hero-image-wrapper">
+                        <img src="images/logo.png"
+                             loading="lazy"
+                             class="hero-image"
+                             alt="منصة code scanner">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Enhanced Features Section -->
+    <section class="features-section py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="features-title font-cop">مميزات المنصة</h2>
+                <p class="features-subtitle">كل ما تحتاجه للتعلم في مكان واحد</p>
+                <div class="title-decoration">
+                    <div class="decoration-line"></div>
+                    <div class="decoration-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="decoration-line"></div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="enhanced-feature-card">
+                        <div class="feature-card-header">
+                            <div class="feature-icon video-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="feature-number">01</div>
+                        </div>
+                        <div class="feature-card-body">
+                            <h4 class="feature-card-title">فيديوهات تعليمية</h4>
+                            <p class="feature-card-description">مكتبة شاملة للفيديوهات التعليمية المنهجية والشرح التفصيلي بجودة عالية</p>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check"></i> شرح مفصل ومبسط</li>
+                                <li><i class="fas fa-check"></i> جودة عالية HD</li>
+                                <li><i class="fas fa-check"></i> أكثر من مشاهدة</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="enhanced-feature-card">
+                        <div class="feature-card-header">
+                            <div class="feature-icon exam-icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <div class="feature-number">02</div>
+                        </div>
+                        <div class="feature-card-body">
+                            <h4 class="feature-card-title">امتحانات وتقييم</h4>
+                            <p class="feature-card-description">نظام متكامل للامتحانات والتقييم مع تصحيح آلي ونتائج فورية</p>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check"></i> تصحيح آلي فوري</li>
+                                <li><i class="fas fa-check"></i> أسئلة متنوعة</li>
+                                <li><i class="fas fa-check"></i> تقييم شامل</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="enhanced-feature-card">
+                        <div class="feature-card-header">
+                            <div class="feature-icon progress-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="feature-number">03</div>
+                        </div>
+                        <div class="feature-card-body">
+                            <h4 class="feature-card-title">تتبع التقدم</h4>
+                            <p class="feature-card-description">تقارير وتحليلات دقيقة لمتابعة تقدمك التعليمي وتحسين الأداء</p>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check"></i> تقارير مفصلة</li>
+                                <li><i class="fas fa-check"></i> إحصائيات دقيقة</li>
+                                <li><i class="fas fa-check"></i> متابعة مستمرة</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <svg class="blueprint-animation" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Blueprint background -->
+                    <rect width="512" height="512" fill="#1e3a8a" opacity="0.1"/>
+
+                    <!-- Grid lines -->
+                    <defs>
+                        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.3"/>
+                        </pattern>
+                    </defs>
+                    <rect width="512" height="512" fill="url(#grid)"/>
+
+                    <!-- Technical drawing elements -->
+                    <g stroke="#3b82f6" stroke-width="2" fill="none">
+                        <!-- Main structure -->
+                        <rect x="150" y="150" width="212" height="150" stroke-width="3"/>
+                        <rect x="180" y="180" width="152" height="90" stroke-width="2"/>
+
+                        <!-- Dimension lines -->
+                        <line x1="140" y1="140" x2="140" y2="310"/>
+                        <line x1="135" y1="150" x2="145" y2="150"/>
+                        <line x1="135" y1="300" x2="145" y2="300"/>
+
+                        <!-- Measurements -->
+                        <text x="120" y="230" fill="#3b82f6" font-size="12" text-anchor="middle" transform="rotate(-90 120 230)">150mm</text>
+
+                        <!-- Cross-section lines -->
+                        <line x1="256" y1="130" x2="256" y2="320" stroke-dasharray="5,5"/>
+                        <line x1="130" y1="225" x2="382" y2="225" stroke-dasharray="5,5"/>
+
+                        <!-- Detail circles -->
+                        <circle cx="200" cy="200" r="15"/>
+                        <circle cx="312" cy="200" r="15"/>
+                        <circle cx="200" cy="250" r="15"/>
+                        <circle cx="312" cy="250" r="15"/>
+
+                        <!-- Connecting lines -->
+                        <line x1="200" y1="200" x2="312" y2="200"/>
+                        <line x1="200" y1="250" x2="312" y2="250"/>
+                        <line x1="200" y1="200" x2="200" y2="250"/>
+                        <line x1="312" y1="200" x2="312" y2="250"/>
+                    </g>
+
+                    <!-- Title block -->
+                    <rect x="350" y="400" width="150" height="100" fill="none" stroke="#3b82f6" stroke-width="2"/>
+                    <text x="425" y="420" fill="#3b82f6" font-size="14" text-anchor="middle" font-weight="bold">ENGINEERING</text>
+                    <text x="425" y="440" fill="#3b82f6" font-size="12" text-anchor="middle">DRAWING</text>
+                    <text x="425" y="460" fill="#3b82f6" font-size="10" text-anchor="middle">Scale: 1:1</text>
+                    <text x="425" y="480" fill="#3b82f6" font-size="10" text-anchor="middle">Rev: A</text>
+                </svg>
+        <svg class="mechanical-animation" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+            <!-- Large gear -->
+            <g class="gear-large" transform-origin="150 150">
+                <circle cx="150" cy="150" r="80" fill="#4f46e5" stroke="#3730a3" stroke-width="4"/>
+                <circle cx="150" cy="150" r="20" fill="#1e1b4b"/>
+                <!-- Gear teeth -->
+                <g fill="#4f46e5" stroke="#3730a3" stroke-width="2">
+                    <rect x="145" y="65" width="10" height="15" transform="rotate(0 150 150)"/>
+                    <rect x="145" y="65" width="10" height="15" transform="rotate(30 150 150)"/>
+                    <rect x="145" y="65" width="10" height="15" transform="rotate(60 150 150)"/>
+                    <rect x="145" y="65" width="10" height="15" transform="rotate(90 150 150)"/>
+                    <rect x="145" y="65" width="10" height="15" transform="rotate(120 150 150)"/>
+                    <rect x="145" y="65" width="10" height="15" transform="rotate(150 150 150)"/>
+                    <rect x="145" y="65" width="10" height="15" transform="rotate(180 150 150)"/>
+                    <rect x="145" y="65" width="10" height="15" transform="rotate(210 150 150)"/>
+                    <rect x="145" y="65" width="10" height="15" transform="rotate(240 150 150)"/>
+                    <rect x="145" y="65" width="10" height="15" transform="rotate(270 150 150)"/>
+                    <rect x="145" y="65" width="10" height="15" transform="rotate(300 150 150)"/>
+                    <rect x="145" y="65" width="10" height="15" transform="rotate(330 150 150)"/>
+                </g>
+            </g>
+
+            <!-- Medium gear -->
+            <g class="gear-medium" transform-origin="300 200">
+                <circle cx="300" cy="200" r="60" fill="#059669" stroke="#047857" stroke-width="3"/>
+                <circle cx="300" cy="200" r="15" fill="#064e3b"/>
+                <!-- Gear teeth -->
+                <g fill="#059669" stroke="#047857" stroke-width="2">
+                    <rect x="297" y="135" width="6" height="12" transform="rotate(0 300 200)"/>
+                    <rect x="297" y="135" width="6" height="12" transform="rotate(40 300 200)"/>
+                    <rect x="297" y="135" width="6" height="12" transform="rotate(80 300 200)"/>
+                    <rect x="297" y="135" width="6" height="12" transform="rotate(120 300 200)"/>
+                    <rect x="297" y="135" width="6" height="12" transform="rotate(160 300 200)"/>
+                    <rect x="297" y="135" width="6" height="12" transform="rotate(200 300 200)"/>
+                    <rect x="297" y="135" width="6" height="12" transform="rotate(240 300 200)"/>
+                    <rect x="297" y="135" width="6" height="12" transform="rotate(280 300 200)"/>
+                    <rect x="297" y="135" width="6" height="12" transform="rotate(320 300 200)"/>
+                </g>
+            </g>
+
+            <!-- Small gear -->
+            <g class="gear-small" transform-origin="400 120">
+                <circle cx="400" cy="120" r="40" fill="#dc2626" stroke="#b91c1c" stroke-width="2"/>
+                <circle cx="400" cy="120" r="10" fill="#7f1d1d"/>
+                <!-- Gear teeth -->
+                <g fill="#dc2626" stroke="#b91c1c" stroke-width="1">
+                    <rect x="398" y="77" width="4" height="8" transform="rotate(0 400 120)"/>
+                    <rect x="398" y="77" width="4" height="8" transform="rotate(60 400 120)"/>
+                    <rect x="398" y="77" width="4" height="8" transform="rotate(120 400 120)"/>
+                    <rect x="398" y="77" width="4" height="8" transform="rotate(180 400 120)"/>
+                    <rect x="398" y="77" width="4" height="8" transform="rotate(240 400 120)"/>
+                    <rect x="398" y="77" width="4" height="8" transform="rotate(300 400 120)"/>
+                </g>
+            </g>
+
+            <!-- Connecting elements -->
+            <line x1="150" y1="150" x2="300" y2="200" stroke="#6b7280" stroke-width="3" stroke-dasharray="5,5"/>
+            <line x1="300" y1="200" x2="400" y2="120" stroke="#6b7280" stroke-width="3" stroke-dasharray="5,5"/>
+
+            <!-- Mechanical frame -->
+            <rect x="50" y="50" width="400" height="300" fill="none" stroke="#374151" stroke-width="4" rx="10"/>
+            <rect x="60" y="60" width="380" height="280" fill="none" stroke="#9ca3af" stroke-width="2" rx="5"/>
+        </svg>
+        <svg class="calculator-animation" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+            <!-- Calculator body -->
+            <rect x="150" y="50" width="212" height="350" rx="20" fill="#2d3748" stroke="#1a202c" stroke-width="4"/>
+
+            <!-- Screen -->
+            <rect x="170" y="80" width="172" height="60" rx="8" fill="#000" stroke="#4a5568" stroke-width="2"/>
+            <text x="260" y="115" fill="#00ff00" font-family="monospace" font-size="20" text-anchor="end">123.45</text>
+
+            <!-- Button grid -->
+            <g fill="#4a5568" stroke="#2d3748" stroke-width="2">
+                <!-- Row 1 -->
+                <rect x="180" y="160" width="35" height="35" rx="5"/>
+                <text x="197.5" y="182" fill="white" font-size="14" text-anchor="middle">C</text>
+
+                <rect x="225" y="160" width="35" height="35" rx="5"/>
+                <text x="242.5" y="182" fill="white" font-size="14" text-anchor="middle">±</text>
+
+                <rect x="270" y="160" width="35" height="35" rx="5"/>
+                <text x="287.5" y="182" fill="white" font-size="14" text-anchor="middle">%</text>
+
+                <rect x="315" y="160" width="35" height="35" rx="5" fill="#f56500"/>
+                <text x="332.5" y="182" fill="white" font-size="14" text-anchor="middle">÷</text>
+
+                <!-- Row 2 -->
+                <rect x="180" y="205" width="35" height="35" rx="5"/>
+                <text x="197.5" y="227" fill="white" font-size="14" text-anchor="middle">7</text>
+
+                <rect x="225" y="205" width="35" height="35" rx="5"/>
+                <text x="242.5" y="227" fill="white" font-size="14" text-anchor="middle">8</text>
+
+                <rect x="270" y="205" width="35" height="35" rx="5"/>
+                <text x="287.5" y="227" fill="white" font-size="14" text-anchor="middle">9</text>
+
+                <rect x="315" y="205" width="35" height="35" rx="5" fill="#f56500"/>
+                <text x="332.5" y="227" fill="white" font-size="14" text-anchor="middle">×</text>
+
+                <!-- Row 3 -->
+                <rect x="180" y="250" width="35" height="35" rx="5"/>
+                <text x="197.5" y="272" fill="white" font-size="14" text-anchor="middle">4</text>
+
+                <rect x="225" y="250" width="35" height="35" rx="5"/>
+                <text x="242.5" y="272" fill="white" font-size="14" text-anchor="middle">5</text>
+
+                <rect x="270" y="250" width="35" height="35" rx="5"/>
+                <text x="287.5" y="272" fill="white" font-size="14" text-anchor="middle">6</text>
+
+                <rect x="315" y="250" width="35" height="35" rx="5" fill="#f56500"/>
+                <text x="332.5" y="272" fill="white" font-size="14" text-anchor="middle">-</text>
+
+                <!-- Row 4 -->
+                <rect x="180" y="295" width="35" height="35" rx="5"/>
+                <text x="197.5" y="317" fill="white" font-size="14" text-anchor="middle">1</text>
+
+                <rect x="225" y="295" width="35" height="35" rx="5"/>
+                <text x="242.5" y="317" fill="white" font-size="14" text-anchor="middle">2</text>
+
+                <rect x="270" y="295" width="35" height="35" rx="5"/>
+                <text x="287.5" y="317" fill="white" font-size="14" text-anchor="middle">3</text>
+
+                <rect x="315" y="295" width="35" height="35" rx="5" fill="#f56500"/>
+                <text x="332.5" y="317" fill="white" font-size="14" text-anchor="middle">+</text>
+
+                <!-- Row 5 -->
+                <rect x="180" y="340" width="80" height="35" rx="5"/>
+                <text x="220" y="362" fill="white" font-size="14" text-anchor="middle">0</text>
+
+                <rect x="270" y="340" width="35" height="35" rx="5"/>
+                <text x="287.5" y="362" fill="white" font-size="14" text-anchor="middle">.</text>
+
+                <rect x="315" y="340" width="35" height="35" rx="5" fill="#f56500"/>
+                <text x="332.5" y="362" fill="white" font-size="14" text-anchor="middle">=</text>
+            </g>
+
+            <!-- Engineering symbols around calculator -->
+            <g fill="#3182ce" opacity="0.6">
+                <!-- Angle symbol -->
+                <path d="M100 200 L130 200 L130 230 Z" stroke="#3182ce" stroke-width="2" fill="none"/>
+                <text x="115" y="220" font-size="12" text-anchor="middle">θ</text>
+
+                <!-- Pi symbol -->
+                <text x="400" y="200" font-size="24" text-anchor="middle">π</text>
+
+                <!-- Sigma symbol -->
+                <text x="100" y="300" font-size="24" text-anchor="middle">Σ</text>
+
+                <!-- Square root -->
+                <path d="M380 280 L390 290 L400 270 L420 270" stroke="#3182ce" stroke-width="2" fill="none"/>
+                <text x="410" y="285" font-size="12" text-anchor="middle">x</text>
+            </g>
+        </svg>
+        <!-- Enhanced Courses Section -->
+        <section class="courses-section py-5">
+            <div class="container">
+                <div class="row align-items-center g-4">
+                    <!-- Section Title and Description -->
+                    <div class="col-lg-5" data-aos="fade-right">
+                        <div class="section-header">
+                            <h2 class="section-title font-cop">
+                                                                    <span class="title-main">الكورسات</span>
+                                    <span class="title-accent">و فيديوهاتها</span>
+                                    <span class="title-accent">و امتحاناتها</span>
+                                                            </h2>
+                            <p class="section-subtitle">
+                                                                    من هنا تقدر توصل أسرع لكل كورس وتتابع تقدمك التعليمي
+                                                            </p>
+                            <div class="section-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-video text-primary"></i>
+                                    <span>فيديوهات تفاعلية</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-clipboard-check text-success"></i>
+                                    <span>امتحانات متنوعة</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-chart-line text-info"></i>
+                                    <span>تتبع التقدم</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                 
+                </div>
+            </div>
+        </section>
+
+        <!-- Honor Roll Section -->
+        
+        <!-- Student Opinions Section -->
+        
+        </div> <!-- Close mt-12 mb-4 div -->
+    </div> <!-- Close main-content div -->
+
+    <!-- Notification functionality -->
+        
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const notificationBtn = document.getElementById("notificationsDropdown");
+        if (notificationBtn) {
+            notificationBtn.addEventListener("click", function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log("Notification button clicked");
+
+                // Find the dropdown menu
+                const dropdownMenu = notificationBtn.nextElementSibling;
+                if (dropdownMenu) {
+                    // Toggle the show class
+                    dropdownMenu.classList.toggle("show");
+
+                    // Close dropdown when clicking outside
+                    document.addEventListener("click", function closeDropdown(e) {
+                        if (!dropdownMenu.contains(e.target) && e.target !== notificationBtn) {
+                            dropdownMenu.classList.remove("show");
+                            document.removeEventListener("click", closeDropdown);
+                        }
+                    });
+                }
+            });
+        }
+    });
+    </script>
+    <script>
+    function markAsRead(notificationId, element) {
+        fetch("mark_notification_read.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: "notification_id=" + notificationId
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Mark notification as read visually
+                element.classList.remove("bg-light");
+                
+                // Update badge count
+                const badge = document.querySelector(".badge");
+                if (badge) {
+                    const count = parseInt(badge.textContent) - 1;
+                    if (count <= 0) {
+                        badge.remove();
+                    } else {
+                        badge.textContent = count;
+                    }
+                }
+                
+                // Show notification content in SweetAlert2
+                const title = element.querySelector("strong").textContent;
+                const message = element.querySelector(".text-wrap").textContent;
+                
+                if (typeof Swal !== "undefined") {
+                    Swal.fire({
+                        title: title,
+                        text: message,
+                        icon: "info",
+                        confirmButtonText: "حسناً",
+                        customClass: {
+                            popup: "rtl-alert"
+                        }
+                    });
+                }
+            } else {
+                console.error("Failed to mark notification as read");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+        
+        return false;
+    }
+    </script>        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="protection-simple.js"></script>
+
 <style>
-:root{
-  --bg:#020617;--card:rgba(15,23,42,.97);--blue:#38bdf8;--blue2:#2563eb;--green:#22c55e;--red:#ef4444;--yellow:#eab308;--purple:#8b5cf6;
-  --light-bg:#f8fafc;--light-card:rgba(255,255,255,.98);--light-text:#1e293b;--glass:rgba(255,255,255,0.12);
-  --shadow-sm:0 10px 25px rgba(0,0,0,0.2);--shadow-md:0 20px 50px rgba(0,0,0,0.3);--shadow-lg:0 30px 70px rgba(0,0,0,0.4);
-}
-*{box-sizing:border-box;font-family:'Cairo',sans-serif;margin:0;padding:0;}
-body{background:linear-gradient(135deg,var(--bg),#111827);color:#e5e7eb;overflow-x:hidden;transition:all .4s;}
-.hidden{display:none;transition:all .4s ease;}
-body.light{background:var(--light-bg);color:var(--light-text);}
-body.light .card{background:var(--light-card);color:var(--light-text);}
-body.light nav{background:var(--light-card);color:var(--light-text);}
+    :root { --ramadan-gold: #FFD700; }
 
-.loading{display:inline-block;width:22px;height:22px;border:3px solid rgba(255,255,255,.3);border-radius:50%;border-top-color:#fff;margin-right:12px;animation:spin 1s ease-in-out infinite;}
-@keyframes spin{to{transform:rotate(360deg);}}
-@keyframes fadeInUp{from{opacity:0;transform:translateY(60px);}to{opacity:1;transform:translateY(0);}}
+    #ramadan-intro-overlay {
+        position: fixed;
+        top: 0; left: 0; 
+        width: 100vw; height: 100vh;
+        background: #000;
+        z-index: 99999; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 1.5s ease;
+        overflow: hidden;
+    }
 
-#login{height:100vh;background:linear-gradient(135deg,#020617,rgba(56,189,248,0.2));display:flex;justify-content:center;align-items:center;position:relative;}
-#login::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;backdrop-filter:blur(12px);background:rgba(0,0,0,0.5);z-index:1;}
-.login-box{background:var(--card);backdrop-filter:blur(30px);padding:45px;width:90%;max-width:480px;border-radius:30px;box-shadow:var(--shadow-lg);border:1px solid var(--glass);z-index:2;animation:fadeInUp 1.2s;}
-.login-box h2{text-align:center;font-weight:800;margin-bottom:40px;background:linear-gradient(135deg,var(--blue),var(--blue2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:2.8em;}
-.login-box input{width:100%;padding:20px;margin:18px 0;border:none;border-radius:18px;font-size:17px;background:var(--glass);color:#e5e7eb;border:1px solid rgba(255,255,255,0.3);transition:all .3s;}
-.login-box input::placeholder{color:#9ca3af;}
-.login-box input:focus{outline:none;box-shadow:0 0 0 4px rgba(56,189,248,0.4);border-color:var(--blue);transform:scale(1.02);}
-button{background:linear-gradient(135deg,var(--blue2),var(--blue));color:#fff;font-weight:700;cursor:pointer;transition:all .3s;border:none;border-radius:18px;padding:20px;font-size:18px;box-shadow:var(--shadow-md);}
-button:hover{transform:translateY(-3px) scale(1.02);box-shadow:var(--shadow-lg);}
-button:disabled{background:#64748b;transform:none;cursor:not-allowed;}
+    canvas#fireworksCanvas {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        z-index: 1; 
+        pointer-events: none;
+        /* Hardware acceleration hint */
+        transform: translateZ(0);
+        backface-visibility: hidden;
+    }
 
-nav{position:sticky;top:0;z-index:100;background:var(--card);backdrop-filter:blur(30px);display:flex;justify-content:space-between;align-items:center;padding:18px 30px;border-bottom:1px solid rgba(255,255,255,0.2);box-shadow:var(--shadow-md);}
-.logo{font-size:2.2em;font-weight:800;background:linear-gradient(135deg,var(--blue),#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.nav-buttons{display:flex;gap:15px;flex-wrap:wrap;align-items:center;}
-nav button{background:rgba(30,41,59,0.95);color:#e5e7eb;border:none;padding:16px 28px;border-radius:18px;font-weight:700;cursor:pointer;transition:all .3s;}
-nav button:hover{background:linear-gradient(135deg,var(--blue2),var(--blue));transform:translateY(-2px);}
-nav button.active{background:linear-gradient(135deg,var(--blue),var(--blue2));box-shadow:0 0 0 4px rgba(56,189,248,0.4);}
-#modeToggle{padding:14px 20px;background:var(--blue2);border-radius:15px;font-size:22px;}
-#modeToggle:hover{transform:scale(1.15) rotate(180deg);}
+    .fireworks-message {
+        position: absolute;
+        z-index: 100; 
+        color: var(--ramadan-gold);
+        font-size: clamp(3rem, 15vw, 8rem);
+        font-weight: 900;
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+        text-align: center;
+        font-family: sans-serif;
+        direction: rtl;
+        pointer-events: none;
+    }
 
-.container{max-width:1300px;margin:auto;padding:30px;}
-.grid{display:grid;gap:30px;}
-.grid-4{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
-.card{background:var(--card);backdrop-filter:blur(25px);padding:35px;border-radius:25px;box-shadow:var(--shadow-md);border:1px solid var(--glass);transition:all .4s;}
-.card:hover{transform:translateY(-12px) scale(1.02);box-shadow:var(--shadow-lg);}
+    #ramadan-global-wrapper {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        pointer-events: none;
+        z-index: 9000;
+    }
 
-.stat{font-size:3em;font-weight:800;margin-bottom:15px;}
-.stat.Low{color:var(--green);text-shadow:0 0 25px rgba(34,197,94,0.7);}
-.stat.Medium{color:var(--yellow);text-shadow:0 0 25px rgba(234,179,8,0.7);}
-.stat.High{color:var(--red);text-shadow:0 0 25px rgba(239,68,68,0.7);}
-.stat.default{background:linear-gradient(135deg,var(--blue),#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.badge{display:inline-block;padding:12px 24px;border-radius:35px;background:linear-gradient(135deg,var(--blue2),var(--blue));font-weight:700;color:#fff;box-shadow:var(--shadow-sm);}
+    .image-zeina {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 250px;
+        background-image: url("images/ramadan.png");
+        background-repeat: repeat-x;
+        background-size: contain;
+    }
 
-.file-upload-btn{background:linear-gradient(135deg,var(--green),#16a34a);color:#fff;padding:18px 35px;border:none;border-radius:18px;cursor:pointer;font-weight:700;margin-bottom:25px;transition:all .3s;box-shadow:var(--shadow-md);}
-.file-upload-btn:hover{transform:scale(1.05);}
-textarea{width:100%;height:220px;background:rgba(17,24,39,0.97);color:#e5e7eb;border:1px solid rgba(255,255,255,0.3);border-radius:20px;padding:25px;font-family:'Courier New',monospace;font-size:16px;}
-textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(56,189,248,0.4);border-color:var(--blue);}
-#scanResult{margin-top:30px;padding:30px;border-radius:20px;background:rgba(0,0,0,0.6);border-left:6px solid var(--blue);}
-.vuln-item{padding:25px;margin:15px 0;border-radius:18px;}
-.severity-high{background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;}
-.severity-medium{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;}
-.severity-low{background:linear-gradient(135deg,#10b981,#059669);color:#fff;}
+    .moon {
+        position: fixed;
+        top: 120px; right: 5%; width: 60px;
+        filter: drop-shadow(0 0 10px var(--ramadan-gold));
+        animation: float 4s ease-in-out infinite;
+    }
 
-.progress{background:rgba(30,41,59,0.97);border-radius:18px;height:24px;overflow:hidden;margin:30px 0;}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--green),#86efac);border-radius:18px;transition:width 2s ease;}
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+    .star { position: absolute; background: white; border-radius: 50%; }
 
-.profile-img{border-radius:50%;width:120px;height:120px;margin:0 auto 30px;display:block;border:6px solid var(--glass);cursor:pointer;transition:all .4s;}
-.profile-img:hover{transform:scale(1.1);}
-.logout-btn{background:linear-gradient(135deg,var(--red),#dc2626);color:#fff;padding:18px 45px;border:none;border-radius:18px;font-weight:700;cursor:pointer;transition:all .3s;margin-top:35px;}
-.logout-btn:hover{transform:translateY(-3px);}
-
-.quiz-q{margin-bottom:30px;}
-.quiz-q label{display:block;margin:15px 0;padding:22px;border-radius:18px;background:var(--glass);border:1px solid rgba(255,255,255,0.2);cursor:pointer;transition:all .3s;}
-.quiz-q label:hover{background:rgba(56,189,248,0.25);transform:translateX(5px);}
-
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);backdrop-filter:blur(20px);justify-content:center;align-items:center;z-index:1000;}
-.modal video{width:95%;max-width:1100px;border-radius:25px;}
-
-section{animation:fadeInUp 1.2s ease;}
-@media(max-width:768px){
-  .nav-buttons{flex-direction:column;gap:12px;}
-  .container{padding:20px;}
-  .grid-4{grid-template-columns:1fr;}
-  nav{padding:15px 20px;flex-direction:column;gap:20px;}
-}
-@media(max-width:480px){
-  .login-box{padding:35px;max-width:95%;}
-}
+    .btn-ramadan-toggle {
+        cursor: pointer; background: transparent; border: 2px solid var(--ramadan-gold);
+        color: var(--ramadan-gold) !important; padding: 10px 25px; border-radius: 30px;
+        transition: 0.3s; font-weight: bold;
+    }
+    .ramadan-hidden { display: none !important; }
 </style>
-</head>
-<body>
 
-<!-- LOGIN - بدون action و بدون method -->
-<section id="login">
-<div class="login-box">
-<h2>🛡️ CodeGuard AI</h2>
-<form id="loginForm">
-<input id="userName" name="name" placeholder="الاسم الكامل" required>
-<input id="userEmail" name="email" type="email" placeholder="البريد الإلكتروني" required>
-<button type="submit" id="loginBtn">
-<span id="loginText">🚀 دخول المنصة الرسمية</span>
-<span id="loginLoading" class="loading" style="display:none;"></span>
-</button>
-</form>
-</div>
-</section>
-
-<!-- MAIN APP -->
-<section id="app" class="hidden">
-<nav>
-<div class="logo">🛡️ CodeGuard AI</div>
-<div class="nav-buttons">
-<button onclick="showSection('dashboard',this)" class="active">🏠 Dashboard</button>
-<button onclick="showSection('scanner',this)">🧰 Scanner</button>
-<button onclick="showSection('quiz',this)">📝 Exam</button>
-<button onclick="showSection('courses',this)">🎓 Courses</button>
-<button onclick="showSection('profile',this)">👤 Profile</button>
-<button id="modeToggle" onclick="toggleMode()">🌓</button>
-<button onclick="window.open('https://wa.me/201098995624','_blank')" style="background:linear-gradient(135deg,var(--green),#16a34a);">💬</button>
-</div>
-</nav>
-
-<div class="container">
-<!-- DASHBOARD -->
-<section id="dashboard">
-<div class="grid grid-4">
-<div class="card"><div class="stat default" id="secLevel">Medium</div>مستوى الأمان</div>
-<div class="card"><div class="stat default" id="vulnCount">0</div>الثغرات</div>
-<div class="card"><div class="stat default" id="xpCount">150</div>نقاط الخبرة</div>
-<div class="card"><div class="stat default" id="userLevel">متوسط</div>مستوى المستخدم</div>
+<div id="ramadan-intro-overlay">
+    <div class="fireworks-message animate__animated animate__zoomIn">رمضان كريم</div>
+    <canvas id="fireworksCanvas"></canvas>
 </div>
 
-<div class="grid grid-4">
-<div class="card">
-<h4>🤖 توصيات AI المتطورة</h4>
-<ul style="line-height:2;">
-<li>✅ تجنب <code>eval()</code></li>
-<li>✅ Prepared Statements</li>
-<li>✅ HTTPS + HSTS</li>
-<li>✅ CSP Headers</li>
-<li>✅ Rate Limiting</li>
-</ul>
+<div id="ramadan-global-wrapper">
+    <div id="ramadan-stars-container">
+        <div class="image-zeina animate__animated animate__fadeInDown"></div>
+        <div class="moon">
+            <svg viewBox="0 0 100 100"><path d="M50 10 A40 40 0 1 0 90 50 A30 30 0 1 1 50 10" fill="gold" /></svg>
+        </div>
+    </div>
 </div>
-<div class="card">
-<h4>📊 تقدمك</h4>
-<p id="quizScore">لم يتم إجراء اختبار</p>
-<div class="progress"><div id="quizBar" class="progress-fill" style="width:0%"></div></div>
-<span class="badge" id="badge">لا شارات</span>
-</div>
-<div class="card">
-<h4>🎯 المهام اليومية</h4>
-<div style="height:20px;margin:10px 0;background:var(--glass);border-radius:10px;animation:loading 2s infinite;"></div>
-<div style="height:20px;margin:10px 0;background:var(--glass);border-radius:10px;animation:loading 2s infinite 0.3s infinite;"></div>
-<div style="height:20px;margin:10px 0;background:var(--glass);border-radius:10px;animation:loading 2s infinite 0.6s infinite;"></div>
-</div>
-<div class="card">
-<h4>🏅 الإنجازات</h4>
-<span class="badge" style="background:linear-gradient(135deg,var(--purple),#7c3aed);">🌱 المبتدئ</span><br>
-<span class="badge" id="achieve1" style="opacity:0.5;background:linear-gradient(135deg,var(--yellow),#eab308);">🔥 المحترف</span>
-</div>
-</div>
-</section>
 
-<!-- SCANNER -->
-<section id="scanner" class="hidden">
-<div class="card">
-<h3>🧠 فحص الكود الذكي (Real-time)</h3>
-<input type="file" id="fileInput" accept=".txt,.js,.html,.php,.py,.css" style="display:none;">
-<label for="fileInput" class="file-upload-btn">📁 رفع ملف كود</label>
-<textarea id="codeInput" placeholder="الصق الكود هنا... يتم الفحص التلقائي أثناء الكتابة"></textarea>
-<button onclick="deepScanCode()" style="width:auto;padding:20px 50px;margin-top:25px;background:linear-gradient(135deg,var(--blue2),var(--blue));">🔍 فحص عميق</button>
-<div id="scanResult"></div>
-<div id="scanHistory"></div>
-</div>
-</section>
+<footer class="footer-with-swave">
+    <div>
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0,0,0,0.7)" />
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0,0,0,0.5)" />
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(0,0,0,0.3)" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="black" />
+            </g>
+        </svg>
+    </div>
 
-<!-- QUIZ -->
-<section id="quiz" class="hidden">
-<div class="card">
-<h3>📝 اختبار الأمن السيبراني (15 سؤال)</h3>
-<form id="quizForm">
-<div id="quizBox"></div>
-<button type="submit" id="quizSubmitBtn" style="width:auto;padding:20px 50px;margin-top:35px;">
-<span id="quizBtnText">📊 إرسال الاختبار</span>
-<span id="quizLoading" class="loading" style="display:none;"></span>
-</button>
-</form>
-<div id="quizResult" style="margin-top:40px;display:none;"></div>
-</div>
-</section>
-
-<!-- COURSES -->
-<section id="courses" class="hidden">
-<div class="grid grid-4">
-<div class="card">
-<h4>🎓 أساسيات OWASP Top 10</h4>
-<p>25 درس • 95% مكتمل</p>
-<div class="progress"><div class="progress-fill" style="width:95%"></div></div>
-<button onclick="playCourseVideo('course1.mp4')" style="width:100%;padding:18px 30px;margin-top:25px;">▶️ متابعة</button>
-</div>
-<div class="card">
-<h4>🔐 تشفير متقدم</h4>
-<p>18 درس • 60% مكتمل</p>
-<div class="progress"><div class="progress-fill" style="width:60%"></div></div>
-<button onclick="playCourseVideo('course2.mp4')" style="width:100%;padding:18px 30px;margin-top:25px;">▶️ متابعة</button>
-</div>
-</div>
-</section>
-
-<!-- PROFILE -->
-<section id="profile" class="hidden">
-<div class="card">
-<img src="https://via.placeholder.com/120/2563eb/ffffff?text=👤" alt="Profile" class="profile-img" id="profilePic">
-<label for="profileUpload" class="file-upload-btn" style="display:block;margin:30px auto;width:fit-content;">📸 تحديث الصورة</label>
-<input type="file" id="profileUpload" accept="image/*">
-<h3 style="text-align:center;margin:35px 0 25px 0;">👤 الملف الشخصي</h3>
-<p id="pname" style="font-size:1.6em;text-align:center;font-weight:800;margin:25px 0;"></p>
-<p id="pemail" style="font-size:1.4em;text-align:center;color:#9ca3af;margin:20px 0;"></p>
-<p id="pLevel" style="font-size:1.5em;text-align:center;margin:30px 0;"></p>
-<span class="badge" id="profileBadge" style="display:block;margin:25px auto;">شارة المتوسط</span>
-<button onclick="logout()" class="logout-btn">🚪 تسجيل الخروج</button>
-</div>
-</section>
-</div>
-</section>
-
-<!-- Video Modal -->
-<div class="modal" id="videoModal">
-<button onclick="closeVideoModal(event)" style="position:absolute;top:30px;right:30px;font-size:40px;background:none;border:none;color:#fff;cursor:pointer;">×</button>
-<video id="modalVideo" controls></video>
-</div>
+    <div class="footer-content text-white bg-black py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="mb-2">
+                      
+                        <button class="btn-ramadan-toggle" onclick="toggleRamadanGlobal()" id="global-toggle-btn">إيقاف الأجواء</button>
+                    </div>
+                    <p class="mb-0" style="direction: ltr;">
+                        &copy; Developed By sherif rajeh  </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <script>
-let user = {}, lastScore = 0, scanHistoryArr = [], currentVulns = [], userXP = 1250;
-const questions = [
-  ["ما هو XSS؟", ["هجوم الحقن", "بروتوكول الشبكة", "خوارزمية تشفير", "نوع من الـ Firewall"], 0],
-  ["SQL Injection يحدث بسبب؟", ["عدم تنظيف المدخلات", "ضعف التشفير", "مشكلة في الذاكرة", "خطأ في SSL"], 0],
-  ["أفضل طريقة لحماية من CSRF؟", ["CSRF Tokens", "HTTPS فقط", "Input Validation", "2FA"], 0],
-  ["eval() في JavaScript؟", ["خطير جداً", "آمن تماماً", "مستحسن", "بديل لـ JSON"], 0],
-  ["OWASP Top 10 يشمل؟", ["أهم الثغرات", "أدوات الحماية", "لغات البرمجة", "شهادات الأمان"], 0],
-  ["HTTPS يستخدم؟", ["SSL/TLS", "RSA فقط", "DES", "MD5"], 0],
-  ["Rate Limiting يحمي من؟", ["DDoS", "XSS", "CSRF", "SQLi"], 0],
-  ["Content Security Policy؟", ["يحمي من XSS", "يسرّع الموقع", "يحسن SEO", "يشفّر البيانات"], 0],
-  ["2FA أفضل لأنه؟", ["طبقة حماية إضافية", "أسرع", "مجاني", "لا يحتاج إنترنت"], 0],
-  ["Input Sanitization؟", ["تنظيف المدخلات", "تشفير البيانات", "ضغط الملفات", "تحليل الشبكة"], 0],
-  ["JWT يُستخدم في؟", ["المصادقة", "التشفير", "الضغط", "التخزين"], 0],
-  ["CORS يتحكم في؟", ["الطلبات البينية", "سرعة التحميل", "الذاكرة", "المعالج"], 0],
-  ["HSTS Header يجبر؟", ["HTTPS فقط", "HTTP", "Mixed Content", "Caching"], 0],
-  ["X-Frame-Options يحمي من؟", ["Clickjacking", "SQL Injection", "XSS", "CSRF"], 0],
-  ["Prepared Statements تحمي من؟", ["SQL Injection", "XSS", "CSRF", "DDoS"], 0]
-];
-
-// ✅ LOGIN FUNCTION - مضمون 100%
-function handleLogin(e) {
-  e.preventDefault(); // منع الـ refresh
-  e.stopPropagation(); // منع أي event آخر
-  
-  const name = document.getElementById('userName').value;
-  const email = document.getElementById('userEmail').value;
-  
-  if (!name || !email) {
-    alert('⚠️ يرجى إدخال الاسم والبريد الإلكتروني');
-    return;
-  }
-  
-  // حفظ البيانات
-  user = { name, email };
-  localStorage.setItem('userName', name);
-  localStorage.setItem('userEmail', email);
-  
-  // Loading animation
-  const btn = document.getElementById('loginBtn');
-  const text = document.getElementById('loginText');
-  const loading = document.getElementById('loginLoading');
-  
-  btn.disabled = true;
-  text.style.display = 'none';
-  loading.style.display = 'inline-block';
-  
-  // الانتقال للمنصة بعد 1.2 ثانية
-  setTimeout(() => {
-    document.getElementById('login').classList.add('hidden');
-    document.getElementById('app').classList.remove('hidden');
-    updateProfile();
+    const canvas = document.getElementById('fireworksCanvas');
+    const ctx_r = canvas.getContext('2d', { alpha: true });
+    const intro = document.getElementById('ramadan-intro-overlay');
+    const wrapper = document.getElementById('ramadan-global-wrapper');
+    const globalBtn = document.getElementById("global-toggle-btn");
     
-    // إعادة تفعيل الزر
-    btn.disabled = false;
-    text.style.display = 'inline-block';
-    loading.style.display = 'none';
-  }, 1200);
-}
+    let particles = [];
+    let rockets = [];
+    let isRamadanActive = true;
+    let introFinished = sessionStorage.getItem("ramadanIntroSeen") === "true";
 
-// ربط الـ event listener مباشرة
-document.addEventListener('DOMContentLoaded', function() {
-  // التحقق من تسجيل الدخول السابق
-  const name = localStorage.getItem('userName');
-  const email = localStorage.getItem('userEmail');
-  const theme = localStorage.getItem('theme');
-  
-  if (theme === 'light') document.body.classList.add('light');
-  
-  if (name && email) {
-    user = { name, email };
-    document.getElementById('login').classList.add('hidden');
-    document.getElementById('app').classList.remove('hidden');
-    updateProfile();
-  }
-  
-  // ربط زر الدخول
-  document.getElementById('loginForm').addEventListener('submit', handleLogin);
-  generateQuiz();
-});
-
-function showSection(id, btn) {
-  document.querySelectorAll('#app section').forEach(s => s.classList.add('hidden'));
-  document.getElementById(id).classList.remove('hidden');
-  document.querySelectorAll('.nav-buttons button').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-}
-
-function updateProfile() {
-  document.getElementById('pname').textContent = `الاسم: ${user.name}`;
-  document.getElementById('pemail').textContent = `البريد: ${user.email}`;
-  document.getElementById('pLevel').textContent = 'المستوى: متوسط';
-  document.getElementById('profileBadge').textContent = '🔥 محترف';
-}
-
-function deepScanCode() {
-  const code = document.getElementById('codeInput').value;
-  let vulns = 0;
-  
-  const patterns = [
-    {name:'XSS', regex:/innerHTML|document\.write/i, severity:'high'},
-    {name:'SQL Injection', regex:/SELECT.*FROM/i, severity:'high'},
-    {name:'Eval', regex:/eval\s*\(/i, severity:'high'},
-    {name:'Cookie', regex:/document\.cookie/i, severity:'medium'},
-    {name:'LocalStorage', regex:/localStorage\.setItem/i, severity:'low'}
-  ];
-  
-  let results = [];
-  patterns.forEach(p => {
-    if (p.regex.test(code)) {
-      vulns++;
-      results.push(`<div class="vuln-item severity-${p.severity}"><strong>🚨 ${p.name}</strong></div>`);
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     }
-  });
-  
-  if (!results.length) results = ['<div class="vuln-item severity-low"><strong>✅ مثالي!</strong></div>'];
-  
-  document.getElementById('vulnCount').textContent = vulns;
-  document.getElementById('secLevel').textContent = vulns > 2 ? 'High' : vulns > 0 ? 'Medium' : 'Low';
-  document.getElementById('scanResult').innerHTML = results.join('');
-}
+    window.addEventListener('resize', resize);
+    resize();
 
-function generateQuiz() {
-  let html = '';
-  questions.forEach((q, i) => {
-    html += `<div class="quiz-q">
-      <p style="font-weight:800;margin-bottom:25px;">${q[0]}</p>`;
-    q[1].forEach((opt, j) => {
-      html += `<label><input type="radio" name="q${i}" value="${j}"> ${opt}</label>`;
-    });
-    html += '</div>';
-  });
-  document.getElementById('quizBox').innerHTML = html;
-}
+    class Rocket {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = canvas.height;
+            // Higher targets after intro to not block content
+            this.targetY = introFinished ? (Math.random() * canvas.height * 0.3) : (Math.random() * canvas.height * 0.5);
+            this.velocity = (Math.random() * 5 + 18) * -1;
+            this.hue = Math.random() * 360;
+        }
+        update() {
+            this.y += this.velocity;
+            this.velocity *= 0.99;
+        }
+        draw() {
+            ctx_r.fillStyle = `hsl(${this.hue}, 100%, 70%)`;
+            ctx_r.fillRect(this.x, this.y, 4, 10);
+        }
+    }
 
-document.getElementById('quizForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  let score = 0;
-  questions.forEach((q, i) => {
-    const sel = document.querySelector(`input[name="q${i}"]:checked`);
-    if (sel && parseInt(sel.value) === q[2]) score++;
-  });
-  
-  lastScore = Math.round((score / questions.length) * 100);
-  
-  const btn = document.getElementById('quizSubmitBtn');
-  const text = document.getElementById('quizBtnText');
-  const loading = document.getElementById('quizLoading');
-  
-  btn.disabled = true;
-  text.style.display = 'none';
-  loading.style.display = 'inline-block';
-  
-  setTimeout(() => {
-    alert(`🎉 نتيجتك: ${lastScore}%!`);
-    document.getElementById('quizScore').textContent = `نتيجتك: ${lastScore}%`;
-    document.getElementById('quizBar').style.width = lastScore + '%';
-    document.getElementById('badge').textContent = lastScore >= 80 ? '🏆 خبير' : '🔥 محترف';
-    
-    btn.disabled = false;
-    text.style.display = 'inline-block';
-    loading.style.display = 'none';
-  }, 1500);
-});
+    class Particle {
+        constructor(x, y, hue) {
+            this.x = x; this.y = y; this.hue = hue;
+            this.alpha = 1;
+            this.decay = Math.random() * 0.02 + 0.015;
+            const angle = Math.random() * Math.PI * 2;
+            const speed = Math.random() * 8 + 2;
+            this.vx = Math.cos(angle) * speed;
+            this.vy = Math.sin(angle) * speed;
+        }
+        update() {
+            this.vx *= 0.95;
+            this.vy *= 0.95;
+            this.vy += 0.12;
+            this.x += this.vx;
+            this.y += this.vy;
+            this.alpha -= this.decay;
+        }
+        draw() {
+            ctx_r.fillStyle = `hsla(${this.hue}, 100%, 60%, ${this.alpha})`;
+            ctx_r.fillRect(this.x, this.y, 4, 4);
+        }
+    }
 
-function logout() {
-  if (confirm('هل أنت متأكد؟')) {
-    localStorage.clear();
-    location.reload();
-  }
-}
+    function animate() {
+        if (!isRamadanActive) return;
+        
+        ctx_r.clearRect(0, 0, canvas.width, canvas.height);
 
-function toggleMode() {
-  document.body.classList.toggle('light');
-  localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
-}
+        // If intro is finished, launch a new rocket occasionally
+        if (introFinished && Math.random() < 0.015 && rockets.length < 3) {
+            rockets.push(new Rocket());
+        }
 
-document.getElementById('fileInput').addEventListener('change', e => {
-  const file = e.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = evt => document.getElementById('codeInput').value = evt.target.result;
-    reader.readAsText(file);
-  }
-});
+        for (let i = rockets.length - 1; i >= 0; i--) {
+            const r = rockets[i];
+            r.update();
+            r.draw();
+            if (r.velocity > -2 || r.y <= r.targetY) {
+                for (let j = 0; j < 40; j++) particles.push(new Particle(r.x, r.y, r.hue));
+                rockets.splice(i, 1);
+            }
+        }
 
-document.getElementById('profileUpload').addEventListener('change', e => {
-  const file = e.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = evt => document.getElementById('profilePic').src = evt.target.result;
-    reader.readAsDataURL(file);
-  }
-});
+        for (let i = particles.length - 1; i >= 0; i--) {
+            const p = particles[i];
+            p.update();
+            p.draw();
+            if (p.alpha <= 0) particles.splice(i, 1);
+        }
 
-function playCourseVideo(src) {
-  document.getElementById('modalVideo').src = src;
-  document.getElementById('videoModal').style.display = 'flex';
-}
+        requestAnimationFrame(animate);
+    }
 
-function closeVideoModal(e) {
-  e.stopPropagation();
-  document.getElementById('videoModal').style.display = 'none';
-  document.getElementById('modalVideo').pause();
-}
+    // Launch Logic
+    if (!introFinished) {
+        animate();
+        const launchInterval = setInterval(() => {
+            if (rockets.length < 8) rockets.push(new Rocket());
+        }, 450);
 
-document.getElementById('videoModal').addEventListener('click', e => {
-  if (e.target === e.currentTarget) closeVideoModal(e);
-});
+        setTimeout(() => {
+            clearInterval(launchInterval);
+            intro.style.opacity = "0";
+            setTimeout(() => {
+                intro.style.display = "none";
+                canvas.style.zIndex = "-1";
+                document.body.appendChild(canvas); 
+                sessionStorage.setItem("ramadanIntroSeen", "true");
+                introFinished = true; // Enable background launching
+            }, 1500);
+        }, 3000); 
+    } else {
+        intro.style.display = 'none';
+        canvas.style.zIndex = "99999";
+        document.body.appendChild(canvas);
+        if (sessionStorage.getItem("ramadanGlobalOff") !== "true") {
+            animate();
+        } else {
+            isRamadanActive = false;
+        }
+    }
+
+    function toggleRamadanGlobal() {
+        if (isRamadanActive) {
+            isRamadanActive = false;
+            wrapper.classList.add("ramadan-hidden");
+            canvas.classList.add("ramadan-hidden");
+            globalBtn.innerText = "تشغيل الأجواء";
+            sessionStorage.setItem("ramadanGlobalOff", "true");
+        } else {
+            isRamadanActive = true;
+            wrapper.classList.remove("ramadan-hidden");
+            canvas.classList.remove("ramadan-hidden");
+            globalBtn.innerText = "إيقاف الأجواء";
+            sessionStorage.setItem("ramadanGlobalOff", "false");
+            animate();
+        }
+    }
 </script>
+     <!-- Load SweetAlert2 asynchronously -->
+     <script>
+        // Load SweetAlert2 dynamically
+        const sweetAlertScript = document.createElement('script');
+        sweetAlertScript.src = 'https://cdn.jsdelivr.net/npm/sweetalert2@11';
+        sweetAlertScript.async = true;
+        document.head.appendChild(sweetAlertScript);
+     </script>
+
+     <!-- Bootstrap JS -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <!-- Global functionality for all pages -->
+    <script src="js/global.js"></script>
+    <script src="js/opinions.js"></script>
+
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+
+    <script>
+        // Show login error messages with SweetAlert2 if they exist
+            </script>
+
+    <!-- Duplicate scripts removed - already loaded above -->
+
+    <!-- Notification scripts now handled by component -->
+    
+    <!-- FCM Token Registration for WebView App -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is logged in and AndroidBridge is available
+                        if (typeof window.AndroidBridge !== 'undefined') {
+                console.log('Calling AndroidBridge.onUserLogin with user ID: 1223');
+                try {
+                    window.AndroidBridge.onUserLogin('1223');
+                } catch (e) {
+                    console.error('Error calling AndroidBridge:', e);
+                }
+            } else {
+                console.log('AndroidBridge not available');
+            }
+                    });
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v67327c56f0bb4ef8b305cae61679db8f1769101564043" integrity="sha512-rdcWY47ByXd76cbCFzznIcEaCN71jqkWBBqlwhF1SY7KubdLKZiEGeP7AyieKZlGP9hbY/MhGrwXzJC/HulNyg==" data-cf-beacon='{"version":"2024.11.0","token":"66a7f052de964bdc93fbdafb8fa7bb2f","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>

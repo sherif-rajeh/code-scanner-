@@ -1,0 +1,1604 @@
+
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقرير الطالب - شريف محمد راجح</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --success-color: #4cc9f0;
+            --warning-color: #f72585;
+            --info-color: #7209b7;
+            --light-bg: #f8f9fa;
+            --dark-text: #212529;
+            --light-text: #6c757d;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        * {
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            color: var(--dark-text);
+        }
+        
+
+        /* Header Styles */
+        .student-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            border-radius: 0 0 20px 20px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .student-info {
+            text-align: center;
+        }
+        
+        .student-avatar {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            border: 4px solid white;
+            font-size: 3rem;
+        }
+        
+        .student-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .student-username {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Card Styles */
+        .dashboard-card {
+            background: white;
+            border-radius: 15px;
+            border: none;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+        
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .card-header-custom {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.2rem 1.5rem;
+            border-radius: 15px 15px 0 0 !important;
+            border: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .card-header-warning {
+            background: linear-gradient(135deg, #ff9a00, #ff6b6b);
+        }
+        
+        .card-header-success {
+            background: linear-gradient(135deg, #00b09b, #96c93d);
+        }
+        
+        .card-header-info {
+            background: linear-gradient(135deg, #4cc9f0, #4361ee);
+        }
+        
+        .card-header-danger {
+            background: linear-gradient(135deg, #f72585, #7209b7);
+        }
+        
+        /* Stat Cards */
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 15px;
+            color: white;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+        
+        .stat-card h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0;
+        }
+        
+        .stat-card-1 { background: linear-gradient(135deg, #4361ee, #3a0ca3); }
+        .stat-card-2 { background: linear-gradient(135deg, #4cc9f0, #4895ef); }
+        .stat-card-3 { background: linear-gradient(135deg, #f72585, #b5179e); }
+        .stat-card-4 { background: linear-gradient(135deg, #7209b7, #560bad); }
+        .stat-card-5 { background: linear-gradient(135deg, #3a0ca3, #4361ee); }
+        .stat-card-6 { background: linear-gradient(135deg, #ff9a00, #ff6b6b); }
+        
+        /* Filter Section */
+        .filter-section {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .filter-section label {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Table Styles */
+        .table-custom {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .table-custom thead {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        
+        .table-custom th {
+            border: none;
+            font-weight: 600;
+            padding: 1rem;
+        }
+        
+        .table-custom tbody tr {
+            transition: all 0.2s ease;
+        }
+        
+        .table-custom tbody tr:hover {
+            background-color: rgba(67, 97, 238, 0.05);
+            transform: scale(1.002);
+        }
+        
+        .table-custom td {
+            padding: 1rem;
+            vertical-align: middle;
+            border-color: #f1f3f9;
+        }
+        
+        /* Badge Styles */
+        .badge-custom {
+            padding: 0.4rem 0.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        
+        .badge-success { background: linear-gradient(135deg, #00b09b, #96c93d); }
+        .badge-warning { background: linear-gradient(135deg, #ff9a00, #ff6b6b); }
+        .badge-danger { background: linear-gradient(135deg, #f72585, #7209b7); }
+        .badge-info { background: linear-gradient(135deg, #4cc9f0, #4361ee); }
+        .badge-secondary { background: linear-gradient(135deg, #6c757d, #495057); }
+        
+        /* Button Styles */
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            color: white;
+            border-radius: 50px;
+            padding: 0.6rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(67, 97, 238, 0.3);
+            color: white;
+        }
+        
+        .btn-pdf {
+            background: linear-gradient(135deg, #f72585, #b5179e);
+            border: none;
+            color: white;
+            border-radius: 50px;
+            padding: 0.6rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-pdf:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(247, 37, 133, 0.3);
+            color: white;
+        }
+        
+        /* Chart Container */
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+            padding: 1rem;
+        }
+        
+        /* Performance Indicator */
+        .performance-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        
+        .performance-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .performance-excellent { background: linear-gradient(135deg, #00b09b, #96c93d); color: white; }
+        .performance-good { background: linear-gradient(135deg, #4cc9f0, #4895ef); color: white; }
+        .performance-average { background: linear-gradient(135deg, #ff9a00, #ff6b6b); color: white; }
+        .performance-poor { background: linear-gradient(135deg, #f72585, #b5179e); color: white; }
+        
+        .performance-score {
+            font-size: 2.2rem;
+            line-height: 1;
+        }
+        
+        .performance-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* Pagination */
+        .pagination-custom .page-item .page-link {
+            border-radius: 50px;
+            margin: 0 3px;
+            border: none;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .pagination-custom .page-item.active .page-link {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        
+        /* Progress Bar - FIXED */
+        .progress-custom {
+            height: 12px !important; /* Fixed height */
+            border-radius: 6px !important; /* Half of height for perfect rounding */
+            background-color: #e9ecef !important;
+            overflow: hidden !important;
+            min-width: 100px; /* Minimum width */
+        }
+        
+        .progress-custom .progress-bar {
+            border-radius: 6px !important; /* Same as parent */
+            height: 100% !important; /* Fill parent height */
+            min-width: 0% !important; /* Allow very small widths */
+            transition: width 0.3s ease;
+        }
+        
+        /* Ensure progress bar is visible even with 0% width */
+        .progress-custom .progress-bar[style*="width: 0%"] {
+            min-width: 3px !important; /* Minimum visible width */
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .student-avatar {
+                width: 90px;
+                height: 90px;
+                font-size: 2.2rem;
+            }
+            
+            .student-name {
+                font-size: 1.5rem;
+            }
+            
+            .stat-card h2 {
+                font-size: 1.8rem;
+            }
+            
+            .chart-container {
+                height: 250px;
+            }
+            
+            .progress-custom {
+                height: 10px !important;
+                border-radius: 5px !important;
+            }
+            
+            .progress-custom .progress-bar {
+                border-radius: 5px !important;
+            }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+        }
+        
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--light-text);
+        }
+        
+        .empty-state i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+        
+        /* Tabs Navigation */
+        .nav-tabs-custom {
+            border-bottom: 2px solid #e9ecef;
+            margin-bottom: 1.5rem;
+        }
+        
+        .nav-tabs-custom .nav-link {
+            border: none;
+            color: var(--light-text);
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px 10px 0 0;
+            margin-right: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-tabs-custom .nav-link.active {
+            color: var(--primary-color);
+            background-color: rgba(67, 97, 238, 0.1);
+            border-bottom: 3px solid var(--primary-color);
+        }
+        
+        .nav-tabs-custom .nav-link:hover {
+            color: var(--primary-color);
+            background-color: rgba(67, 97, 238, 0.05);
+        }
+        
+        /* Action buttons */
+        .action-buttons {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        
+        /* Active tab highlight */
+        .nav-tabs-custom .nav-link.active {
+            transform: translateY(-1px);
+            box-shadow: 0 -2px 10px rgba(67, 97, 238, 0.1);
+        }
+        
+        /* Tab Statistics Summary */
+        .tab-statistics {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.05), rgba(58, 12, 163, 0.05));
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(67, 97, 238, 0.1);
+        }
+        
+        .tab-statistics h5 {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid rgba(67, 97, 238, 0.2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+        
+        .stat-label {
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+        
+        .stat-value {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .stat-badge {
+            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<nav class="navbar navbar-light student-page" style="background: white; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);">
+    <div class="container">
+        <a href="index.html" class="logout-btn text-decoration-none">
+            <span class="material-symbols-outlined">logout</span>
+            <span class="d-none d-md-inline">تسجيل الخروج</span>
+        </a>
+        <div class="navbar-brand">
+            <a href="student_dashboard.html" class="back-btn text-decoration-none ms-3" title="العودة للوحة الطالب" style="color: var(--primary-color);">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </a>
+            <a href="index.html"> 
+                <img src="images/logo.png" alt="Logo" class="img-fluid" style="max-width: 80px; filter: drop-shadow(0 3px 5px rgba(0,0,0,0.1));" /> 
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="main-content student-page">
+    <!-- Student Header -->
+    <div class="student-header">
+        <div class="container">
+            <div class="student-info">
+                <div class="student-avatar">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <h1 class="student-name">شريف محمد  راجح</h1>
+               
+                <div class="performance-indicator">
+                    <div class="performance-circle 
+                        performance-good">
+                        <div class="performance-score">100%</div>
+                        <div class="performance-label">المتوسط العام</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <form method="GET" action="student_report.html" id="filterForm">
+                <div class="row g-3 align-items-end">
+                    <input type="hidden" name="student_id" value="1223">
+                    <input type="hidden" name="tab" id="activeTabInput" value="summary">
+                    <input type="hidden" name="exam_page" value="1" id="examPageInput">
+                    <input type="hidden" name="course_page" value="1" id="coursePageInput">
+                    <input type="hidden" name="video_page" value="1" id="videoPageInput">
+                    <input type="hidden" name="center_page" value="1" id="centerPageInput">
+                  
+                    
+                    </div>
+                </div>
+            </form>
+        </div>
+
+       
+
+        
+        <!-- Active Filters -->
+                
+        <!-- Statistics Cards -->
+        <div class="row g-4 mb-4">
+                        <div class="col-md-6 col-lg-3">
+                <div class="stat-card stat-card-1">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h2>1</h2>
+                    <p>الكورسات </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2">
+                <div class="stat-card stat-card-2">
+                    <i class="fas fa-play-circle"></i>
+                    <h2>2</h2>
+                    <p>فيديوهات مشاهدات</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2">
+                <div class="stat-card stat-card-3">
+                    <i class="fas fa-file-alt"></i>
+                    <h2>1</h2>
+                    <p>محاولات الامتحانات</p>
+                </div>
+            </div>
+                        <div class="col-md-6 col-lg-3">
+                <div class="stat-card stat-card-5">
+                    <i class="fas fa-chart-line"></i>
+                    <h2>100%</h2>
+                    <p>متوسط النسبة المئوية</p>
+                </div>
+            </div>
+                    </div>
+
+        <!-- Tabs Navigation -->
+        <ul class="nav nav-tabs nav-tabs-custom" id="reportTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="summary-tab" data-bs-toggle="tab" data-bs-target="#summary" type="button" role="tab" data-tab="summary">
+                    <i class="fas fa-chart-pie ms-2"></i>الملخص الإحصائي
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link " id="exams-tab" data-bs-toggle="tab" data-bs-target="#exams" type="button" role="tab" data-tab="exams">
+                    <i class="fas fa-file-alt ms-2"></i>نتائج الامتحانات
+                </button>
+            </li>
+                        <li class="nav-item" role="presentation">
+                <button class="nav-link " id="courses-tab" data-bs-toggle="tab" data-bs-target="#courses" type="button" role="tab" data-tab="courses">
+                    <i class="fas fa-graduation-cap ms-2"></i>الكورسات
+                </button>
+            </li>
+                        <li class="nav-item" role="presentation">
+                <button class="nav-link " id="videos-tab" data-bs-toggle="tab" data-bs-target="#videos" type="button" role="tab" data-tab="videos">
+                    <i class="fas fa-play-circle ms-2"></i>الفيديوهات
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link " id="center-tab" data-bs-toggle="tab" data-bs-target="#center" type="button" role="tab" data-tab="center">
+                    <i class="fas fa-university ms-2"></i>امتحانات السنتر
+                </button>
+            </li>
+        </ul>
+
+        <!-- Tabs Content -->
+        <div class="tab-content" id="reportTabsContent">
+            
+            <!-- Summary Tab -->
+            <div class="tab-pane fade show active" id="summary" role="tabpanel">
+                <div class="row g-4">
+                    <!-- Platform Exams Summary -->
+                                        <div class="col-lg-6">
+                        <div class="dashboard-card">
+                            <div class="card-header card-header-custom">
+                                <i class="fas fa-laptop ms-2"></i>إحصائيات الامتحانات على المنصة
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-6">
+                                        <div class="text-center p-3" style="background: rgba(40, 167, 69, 0.1); border-radius: 10px;">
+                                            <h3 class="text-success mb-1">9</h3>
+                                            <p class="text-muted mb-0">إجابات صحيحة</p>
+                                            <small class="text-success">90%</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="text-center p-3" style="background: rgba(220, 53, 69, 0.1); border-radius: 10px;">
+                                            <h3 class="text-danger mb-1">1</h3>
+                                            <p class="text-muted mb-0">إجابات خاطئة</p>
+                                            <small class="text-danger">10%</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="mt-3">
+                                            <p class="mb-1">الدرجات المكتسبة</p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="progress-custom flex-grow-1 ms-3">
+                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 69.05%"></div>
+                                                </div>
+                                                <span class="fw-bold text-success">9 (90%)</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3">
+                                            <p class="mb-1">الدرجات المفقودة</p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="progress-custom flex-grow-1 ms-3">
+                                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 30.95%"></div>
+                                                </div>
+                                                <span class="fw-bold text-danger">1 (10%)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                        
+                   
+                    
+                    <!-- Combined Summary -->
+                                        <div class="col-12">
+                        <div class="dashboard-card">
+                            <div class="card-header card-header-success">
+                                <i class="fas fa-chart-line ms-2"></i>الإحصائيات الشاملة (المنصة + السنتر)
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-4">
+                                    <div class="col-md-4">
+                                        <div class="text-center p-4" style="background: linear-gradient(135deg, rgba(0, 176, 155, 0.1), rgba(150, 201, 61, 0.1)); border-radius: 15px;">
+                                            <h2 class="text-success mb-2">9</h2>
+                                            <p class="mb-1 fw-bold">الدرجات المكتسبة</p>
+                                            <span class="badge badge-success">90%</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="text-center p-4" style="background: linear-gradient(135deg, rgba(247, 37, 133, 0.1), rgba(181, 23, 158, 0.1)); border-radius: 15px;">
+                                            <h2 class="text-danger mb-2">1</h2>
+                                            <p class="mb-1 fw-bold">الدرجات المفقودة</p>
+                                            <span class="badge badge-danger">10%</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="text-center p-4" style="background: linear-gradient(135deg, rgba(67, 97, 238, 0.1), rgba(58, 12, 163, 0.1)); border-radius: 15px;">
+                                            <h2 class="text-primary mb-2">10</h2>
+                                            <p class="mb-1 fw-bold">إجمالي الدرجات الممكنة</p>
+                                            <span class="badge badge-info">100%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    </div>
+            </div>
+            
+            <!-- Exams Tab -->
+            <div class="tab-pane fade " id="exams" role="tabpanel">
+                <!-- Exams Statistics Summary (ALL EXAMS) -->
+                <div class="tab-statistics">
+                    <h5><i class="fas fa-chart-bar ms-2"></i>إحصائيات الامتحانات الكلية</h5>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="stat-item">
+                                <span class="stat-label">عدد الامتحانات المؤداة:</span>
+                                <span class="stat-value">1</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-item">
+                                <span class="stat-label">إجمالي الدرجات المكتسبة:</span>
+                                <span class="stat-value">9                                    <span class="badge stat-badge bg-success">90%</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-item">
+                                <span class="stat-label">إجمالي الدرجات المفقودة:</span>
+                                <span class="stat-value">1                                    <span class="badge stat-badge bg-danger">10%</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-item">
+                                <span class="stat-label">المتوسط العام:</span>
+                                <span class="stat-value">
+                                    <span class="badge stat-badge 
+                                        bg-warning">
+                                        100%
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Not Taken Exams -->
+                                <div class="dashboard-card mb-4">
+                    <div class="card-header card-header-warning">
+                        <i class="fas fa-exclamation-triangle ms-2"></i>الامتحانات التي لم يتم أداؤها
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-custom">
+                                <thead>
+                                    <tr>
+                                        <th>اسم الامتحان</th>
+                                        <th>الكورس</th>
+                                        <th>تاريخ الإنشاء</th>
+                                        <th>الإجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                                                        
+                                                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                                
+                <!-- Results Table -->
+                <div class="dashboard-card">
+                    <div class="card-header card-header-custom">
+                        <i class="fas fa-list-alt ms-2"></i>نتائج الامتحانات المؤداة
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-custom">
+                                <thead>
+                                    <tr>
+                                        <th>الامتحان</th>
+                                        <th>المحاولة</th>
+                                        <th>تاريخ البدء</th>
+                                        <th>تاريخ التسليم</th>
+                                        <th>الوقت (د)</th>
+                                        <th>الصحيح</th>
+                                        <th>الخطأ</th>
+                                        <th>الدرجة</th>
+                                        <th>المجموع</th>
+                                        <th>النسبة</th>
+                                        <th>الإجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                                                                                                                                                    <tr>
+                                                <td>امتحان الأساسيات</td>
+                                                                                                                                <tr>
+                                                <td>امتحان 1 | اساسيات الامن السيبراني </td>
+                                                <td><span class="badge badge-info">1</span></td>
+                                                <td>الاحد 7:10 صباحًا، 1 مارس 2026</td>
+                                                <td>
+                                                                                                            الاحد 7:15 صباحًا، 1 مارس 2026                                                                                                    </td>
+                                                <td>
+                                                                                                            5                                                                                                    </td>
+                                                <td><span class="badge badge-success">9</span></td>
+                                                <td><span class="badge badge-danger">1</span></td>
+                                                <td><strong>9</strong></td>
+                                                <td>10</td>
+                                                <td>
+                                                    <span class="badge 
+                                                        badge-info">
+                                                        90%
+                                                    </span>
+                                                </td>
+                                               
+                                            </tr>
+                                                                                                            </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Pagination -->
+                                                <nav aria-label="Page navigation" class="mt-4">
+                            <ul class="pagination pagination-custom justify-content-center">
+                                                                    <li class="page-item active">
+                                        <a class="page-link" href="#" onclick="goToPage('exams', 1)">1</a>
+                                    </li>
+                                                                    <li class="page-item ">
+                                        <a class="page-link" href="#" onclick="goToPage('exams', 2)">2</a>
+                                    </li>
+                                                            </ul>
+                        </nav>
+                                            </div>
+                </div>
+            </div>
+            
+                        <!-- Courses Tab -->
+            <div class="tab-pane fade " id="courses" role="tabpanel">
+                <!-- Courses Statistics Summary (ALL COURSES) -->
+                <div class="tab-statistics">
+                    <h5><i class="fas fa-chart-pie ms-2"></i>إحصائيات الكورسات الكلية</h5>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="stat-item">
+                                <span class="stat-label">إجمالي الكورسات المشتراة:</span>
+                                <span class="stat-value">1</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-item">
+                                <span class="stat-label">الكورسات غير المشتراة:</span>
+                                <span class="stat-value">0</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-item">
+                                <span class="stat-label">المجموع الكلي للكورسات:</span>
+                                <span class="stat-value">1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Purchased Courses -->
+                                <div class="dashboard-card mb-4">
+                    <div class="card-header card-header-success">
+                        <i class="fas fa-graduation-cap ms-2"></i>الكورسات المشتراة
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-4">
+                                                        <div class="col-md-6 col-lg-4">
+                                <div class="card border-0 shadow-sm h-100" style="border-radius: 12px;">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-start mb-3">
+                                            <div class="flex-shrink-0">
+                                                <div class="bg-primary rounded-circle p-3">
+                                                    <i class="fas fa-book text-white"></i>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 me-3">
+                                                <h5 class="card-title mb-1">  اساسيات الامن السيبراني</h5>
+                                                <p class="text-muted mb-2">الاحد 7:1 صباحًا، 1 مارس ٢٠٢٦</p>
+                                                <span class="badge 
+                                                    badge-success badge-custom">
+                                                    مكتمل                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                                       
+                                                    </div>
+                        
+                        <!-- Pagination -->
+                                            </div>
+                </div>
+                                
+                <!-- Not Purchased Courses -->
+                                <div class="dashboard-card">
+                    <div class="card-header card-header-warning">
+                        <i class="fas fa-shopping-cart ms-2"></i>الكورسات غير المشتراة
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-custom">
+                                <thead>
+                                    <tr>
+                                        <th>اسم الكورس</th>
+                                        <th>السعر</th>
+                                        <th>الصف</th>
+                                        <th>تاريخ الإنشاء</th>
+                                        <th>الإجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                                                           
+                                                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                            </div>
+                        
+            <!-- Videos Tab -->
+            <div class="tab-pane fade " id="videos" role="tabpanel">
+                <!-- Videos Statistics Summary (ALL VIDEOS) -->
+                <div class="tab-statistics">
+                    <h5><i class="fas fa-chart-line ms-2"></i>إحصائيات الفيديوهات الكلية</h5>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="stat-item">
+                                <span class="stat-label">إجمالي الفيديوهات المشاهدة:</span>
+                                <span class="stat-value">2</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-item">
+                                <span class="stat-label">إجمالي ساعات المشاهدة:</span>
+                                <span class="stat-value">1 ساعة</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-item">
+                                <span class="stat-label">عدد المشاهدات الكلي:</span>
+                                <span class="stat-value">2</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-item">
+                                <span class="stat-label">الفيديوهات غير المشاهدة:</span>
+                                <span class="stat-value">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Watched Videos -->
+                                <div class="dashboard-card mb-4">
+                    <div class="card-header card-header-info">
+                        <i class="fas fa-play-circle ms-2"></i>الفيديوهات المشاهدة
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-custom">
+                                <thead>
+                                    <tr>
+                                        <th>عنوان الفيديو</th>
+                                        <th>تاريخ المشاهدة</th>
+                                        <th>عدد المشاهدات</th>
+                                        <th>المشاهد/المجموع</th>
+                                        <th>النسبة</th>
+                                        <th>الإجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                                                        <tr>
+                                        <td>اساسيات الامن السيبراني </td>
+                                        <td>الاحد 7:2 صباحًا، 1 مارس ٢٠٢٦</td>
+                                        <td><span class="badge badge-info">2</span></td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="progress-custom flex-grow-1 ms-2">
+                                                    <div class="progress-bar 
+                                                        bg-danger" 
+                                                        style="width: 0%">
+                                                    </div>
+                                                </div>
+                                                <span>10 د</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge 
+                                                badge-danger">
+                                                100%
+                                            </span>
+                                        </td>
+                                    
+                                    </tr>
+                                    
+                                                                    </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Page Video Statistics -->
+                                                <div class="row g-4 mt-4">
+                            <div class="col-md-4">
+                                <div class="text-center p-3" style="background: rgba(67, 97, 238, 0.1); border-radius: 10px;">
+                                    <h3 class="text-primary mb-1">1</h3>
+                                    <p class="text-muted mb-0">المشاهدات في هذه الصفحة</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center p-3" style="background: rgba(76, 201, 240, 0.1); border-radius: 10px;">
+                                    <h3 class="text-info mb-1">1</h3>
+                                    <p class="text-muted mb-0">ساعات المشاهدة في هذه الصفحة</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center p-3" style="background: rgba(0, 176, 155, 0.1); border-radius: 10px;">
+                                    <h3 class="text-success mb-1">90%</h3>
+                                    <p class="text-muted mb-0">متوسط المشاهده</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pagination -->
+                                                <nav aria-label="Page navigation" class="mt-4">
+                            <ul class="pagination pagination-custom justify-content-center">
+                                                                    <li class="page-item active">
+                                        <a class="page-link" href="#" onclick="goToPage('videos', 1)">1</a>
+                                    </li>
+                                                                    <li class="page-item ">
+                                        <a class="page-link" href="#" onclick="goToPage('videos', 2)">2</a>
+                                    </li>
+                                                                    <li class="page-item ">
+                                        <a class="page-link" href="#" onclick="goToPage('videos', 3)">3</a>
+                                    </li>
+                                                                    <li class="page-item ">
+                                        <a class="page-link" href="#" onclick="goToPage('videos', 4)">4</a>
+                                    </li>
+                                                                    <li class="page-item ">
+                                        <a class="page-link" href="#" onclick="goToPage('videos', 5)">5</a>
+                                    </li>
+                                                                    <li class="page-item ">
+                                        <a class="page-link" href="#" onclick="goToPage('videos', 6)">6</a>
+                                    </li>
+                                                                    <li class="page-item ">
+                                        <a class="page-link" href="#" onclick="goToPage('videos', 7)">7</a>
+                                    </li>
+                                                                    <li class="page-item ">
+                                        <a class="page-link" href="#" onclick="goToPage('videos', 8)">8</a>
+                                    </li>
+                                                                    <li class="page-item ">
+                                        <a class="page-link" href="#" onclick="goToPage('videos', 9)">9</a>
+                                    </li>
+                                                                    <li class="page-item ">
+                                        <a class="page-link" href="#" onclick="goToPage('videos', 10)">10</a>
+                                    </li>
+                                                                    <li class="page-item ">
+                                        <a class="page-link" href="#" onclick="goToPage('videos', 11)">11</a>
+                                    </li>
+                                                                    <li class="page-item ">
+                                        <a class="page-link" href="#" onclick="goToPage('videos', 12)">12</a>
+                                    </li>
+                                                                    <li class="page-item ">
+                                        <a class="page-link" href="#" onclick="goToPage('videos', 13)">13</a>
+                                    </li>
+                                                            </ul>
+                        </nav>
+                                            </div>
+                </div>
+                                
+                <!-- Not Watched Videos -->
+                                <div class="dashboard-card">
+                    <div class="card-header card-header-warning">
+                        <i class="fas fa-eye-slash ms-2"></i>الفيديوهات غير المشاهدة
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-custom">
+                                <thead>
+                                    <tr>
+                                        <th>عنوان الفيديو</th>
+                                        <th>المدة</th>
+                                        <th>تاريخ الإنشاء</th>
+                                        <th>الإجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        
+                                                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="protection-simple.js"></script>
+
+<style>
+    :root { --ramadan-gold: #FFD700; }
+
+    #ramadan-intro-overlay {
+        position: fixed;
+        top: 0; left: 0; 
+        width: 100vw; height: 100vh;
+        background: #000;
+        z-index: 99999; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 1.5s ease;
+        overflow: hidden;
+    }
+
+    canvas#fireworksCanvas {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        z-index: 1; 
+        pointer-events: none;
+        /* Hardware acceleration hint */
+        transform: translateZ(0);
+        backface-visibility: hidden;
+    }
+
+    .fireworks-message {
+        position: absolute;
+        z-index: 100; 
+        color: var(--ramadan-gold);
+        font-size: clamp(3rem, 15vw, 8rem);
+        font-weight: 900;
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+        text-align: center;
+        font-family: sans-serif;
+        direction: rtl;
+        pointer-events: none;
+    }
+
+    #ramadan-global-wrapper {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        pointer-events: none;
+        z-index: 9000;
+    }
+
+    .image-zeina {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 250px;
+        background-image: url("images/ramadan.png");
+        background-repeat: repeat-x;
+        background-size: contain;
+    }
+
+    .moon {
+        position: fixed;
+        top: 120px; right: 5%; width: 60px;
+        filter: drop-shadow(0 0 10px var(--ramadan-gold));
+        animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+    .star { position: absolute; background: white; border-radius: 50%; }
+
+    .btn-ramadan-toggle {
+        cursor: pointer; background: transparent; border: 2px solid var(--ramadan-gold);
+        color: var(--ramadan-gold) !important; padding: 10px 25px; border-radius: 30px;
+        transition: 0.3s; font-weight: bold;
+    }
+    .ramadan-hidden { display: none !important; }
+</style>
+
+<div id="ramadan-intro-overlay">
+    <div class="fireworks-message animate__animated animate__zoomIn">رمضان كريم</div>
+    <canvas id="fireworksCanvas"></canvas>
+</div>
+
+<div id="ramadan-global-wrapper">
+    <div id="ramadan-stars-container">
+        <div class="image-zeina animate__animated animate__fadeInDown"></div>
+        <div class="moon">
+            <svg viewBox="0 0 100 100"><path d="M50 10 A40 40 0 1 0 90 50 A30 30 0 1 1 50 10" fill="gold" /></svg>
+        </div>
+    </div>
+</div>
+
+<footer class="footer-with-swave">
+    <div>
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0,0,0,0.7)" />
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0,0,0,0.5)" />
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(0,0,0,0.3)" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="black" />
+            </g>
+        </svg>
+    </div>
+
+    <div class="footer-content text-white bg-black py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="mb-2">
+                       
+                        <button class="btn-ramadan-toggle" onclick="toggleRamadanGlobal()" id="global-toggle-btn">إيقاف الأجواء</button>
+                    </div>
+                    <p class="mb-0" style="direction: ltr;">
+                        Developed By sherif rajeh</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const canvas = document.getElementById('fireworksCanvas');
+    const ctx_r = canvas.getContext('2d', { alpha: true });
+    const intro = document.getElementById('ramadan-intro-overlay');
+    const wrapper = document.getElementById('ramadan-global-wrapper');
+    const globalBtn = document.getElementById("global-toggle-btn");
+    
+    let particles = [];
+    let rockets = [];
+    let isRamadanActive = true;
+    let introFinished = sessionStorage.getItem("ramadanIntroSeen") === "true";
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    class Rocket {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = canvas.height;
+            // Higher targets after intro to not block content
+            this.targetY = introFinished ? (Math.random() * canvas.height * 0.3) : (Math.random() * canvas.height * 0.5);
+            this.velocity = (Math.random() * 5 + 18) * -1;
+            this.hue = Math.random() * 360;
+        }
+        update() {
+            this.y += this.velocity;
+            this.velocity *= 0.99;
+        }
+        draw() {
+            ctx_r.fillStyle = `hsl(${this.hue}, 100%, 70%)`;
+            ctx_r.fillRect(this.x, this.y, 4, 10);
+        }
+    }
+
+    class Particle {
+        constructor(x, y, hue) {
+            this.x = x; this.y = y; this.hue = hue;
+            this.alpha = 1;
+            this.decay = Math.random() * 0.02 + 0.015;
+            const angle = Math.random() * Math.PI * 2;
+            const speed = Math.random() * 8 + 2;
+            this.vx = Math.cos(angle) * speed;
+            this.vy = Math.sin(angle) * speed;
+        }
+        update() {
+            this.vx *= 0.95;
+            this.vy *= 0.95;
+            this.vy += 0.12;
+            this.x += this.vx;
+            this.y += this.vy;
+            this.alpha -= this.decay;
+        }
+        draw() {
+            ctx_r.fillStyle = `hsla(${this.hue}, 100%, 60%, ${this.alpha})`;
+            ctx_r.fillRect(this.x, this.y, 4, 4);
+        }
+    }
+
+    function animate() {
+        if (!isRamadanActive) return;
+        
+        ctx_r.clearRect(0, 0, canvas.width, canvas.height);
+
+        // If intro is finished, launch a new rocket occasionally
+        if (introFinished && Math.random() < 0.015 && rockets.length < 3) {
+            rockets.push(new Rocket());
+        }
+
+        for (let i = rockets.length - 1; i >= 0; i--) {
+            const r = rockets[i];
+            r.update();
+            r.draw();
+            if (r.velocity > -2 || r.y <= r.targetY) {
+                for (let j = 0; j < 40; j++) particles.push(new Particle(r.x, r.y, r.hue));
+                rockets.splice(i, 1);
+            }
+        }
+
+        for (let i = particles.length - 1; i >= 0; i--) {
+            const p = particles[i];
+            p.update();
+            p.draw();
+            if (p.alpha <= 0) particles.splice(i, 1);
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    // Launch Logic
+    if (!introFinished) {
+        animate();
+        const launchInterval = setInterval(() => {
+            if (rockets.length < 8) rockets.push(new Rocket());
+        }, 450);
+
+        setTimeout(() => {
+            clearInterval(launchInterval);
+            intro.style.opacity = "0";
+            setTimeout(() => {
+                intro.style.display = "none";
+                canvas.style.zIndex = "-1";
+                document.body.appendChild(canvas); 
+                sessionStorage.setItem("ramadanIntroSeen", "true");
+                introFinished = true; // Enable background launching
+            }, 1500);
+        }, 3000); 
+    } else {
+        intro.style.display = 'none';
+        canvas.style.zIndex = "99999";
+        document.body.appendChild(canvas);
+        if (sessionStorage.getItem("ramadanGlobalOff") !== "true") {
+            animate();
+        } else {
+            isRamadanActive = false;
+        }
+    }
+
+    function toggleRamadanGlobal() {
+        if (isRamadanActive) {
+            isRamadanActive = false;
+            wrapper.classList.add("ramadan-hidden");
+            canvas.classList.add("ramadan-hidden");
+            globalBtn.innerText = "تشغيل الأجواء";
+            sessionStorage.setItem("ramadanGlobalOff", "true");
+        } else {
+            isRamadanActive = true;
+            wrapper.classList.remove("ramadan-hidden");
+            canvas.classList.remove("ramadan-hidden");
+            globalBtn.innerText = "إيقاف الأجواء";
+            sessionStorage.setItem("ramadanGlobalOff", "false");
+            animate();
+        }
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Chart Data
+    const examLabels = ["\u0627\u0645\u062a\u062d\u0627\u0646 \u0666 \u0645\u0639\u0633\u0643\u0631 \u0627\u0644\u0641\u0631\u0627\u063a\u064a\u0647 - \u0645\u062d\u0627\u0648\u0644\u0629 1","\u0627\u0645\u062a\u062d\u0627\u0646 \u0665 \u0645\u0639\u0633\u0643\u0631 \u0627\u0644\u0641\u0631\u0627\u063a\u064a\u0647 - \u0645\u062d\u0627\u0648\u0644\u0629 1","4 #\u0627\u0645\u062a\u062d\u0627\u0646 \u0634\u0627\u0645\u0644 \u0639\u0644\u064a \u0627\u0644\u0648\u062d\u062f\u0647 \u0627\u0644\u0623\u0648\u0644\u064a | \u0647\u0646\u062f\u0633\u0629 \u0641\u0631\u0627\u063a\u064a\u0629  |\u0645\u0639\u0627\u062f\u0644\u0629 \u0643\u0644\u064a\u0629 \u0627\u0644\u0647\u0646\u062f\u0633\u0629 \u0648\u0627\u0644\u062d\u0627\u0633\u0628\u0627\u062a \u0662\u0660\u0662\u0666 - \u0645\u062d\u0627\u0648\u0644\u0629 1","\u0627\u0645\u062a\u062d\u0627\u0646 \u0664 \u0645\u0639\u0633\u0643\u0631 \u0627\u0644\u0641\u0631\u0627\u063a\u064a\u0647 - \u0645\u062d\u0627\u0648\u0644\u0629 1","\u0627\u0645\u062a\u062d\u0627\u0646 \u0663 \u0645\u0639\u0633\u0643\u0631 \u0641\u0631\u0627\u063a\u064a\u0647 - \u0645\u062d\u0627\u0648\u0644\u0629 1","\u0627\u0645\u062a\u062d\u0627\u0646 \u0662 \u0645\u0639\u0633\u0643\u0631 \u0627\u0644\u0641\u0631\u0627\u063a\u064a\u0647 - \u0645\u062d\u0627\u0648\u0644\u0629 1","\u0627\u0645\u062a\u062d\u0627\u0646 \u0661 \u0645\u0639\u0633\u0643\u0631 \u0627\u0644\u0641\u0631\u0627\u063a\u064a\u0629 - \u0645\u062d\u0627\u0648\u0644\u0629 1","\u0627\u0645\u062a\u062d\u0627\u0646 1 \u0647\u0646\u062f\u0633\u0629 - \u0645\u062d\u0627\u0648\u0644\u0629 1","\u0627\u0645\u062a\u062d\u0627\u0646 \u0641\u0628\u0631\u0627\u064a\u0631  A \u0647\u0646\u062f\u0633\u0647 \u0628\u0627\u0644\u0639\u0631\u0628\u064a - \u0645\u062d\u0627\u0648\u0644\u0629 1","\u0627\u0645\u062a\u062d\u0627\u0646 1 | \u0643\u064a\u0645\u064a\u0627 |\u0645\u0639\u0627\u062f\u0644\u0629 \u0643\u0644\u064a\u0629 \u0627\u0644\u0647\u0646\u062f\u0633\u0629 \u0662\u0660\u0662\u0666 - \u0645\u062d\u0627\u0648\u0644\u0629 1"];
+    const correctPercentages = [100,90,100,80,90,90,100,100,78.33,75];
+    const incorrectPercentages = [0,10,0,20,10,10,0,0,21.67,25];
+    const notMarkedPercentages = [0,0,0,0,0,0,0,0,0,0];
+
+    // Create Chart
+        const ctx = document.getElementById('examPercentagesChart').getContext('2d');
+    const examPercentagesChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: examLabels,
+            datasets: [
+                {
+                    label: 'الإجابات الصحيحة',
+                    data: correctPercentages,
+                    backgroundColor: '#28a745',
+                    borderColor: '#28a745',
+                    borderWidth: 1,
+                    borderRadius: 5
+                },
+                {
+                    label: 'الدرجات المفقودة',
+                    data: incorrectPercentages,
+                    backgroundColor: '#dc3545',
+                    borderColor: '#dc3545',
+                    borderWidth: 1,
+                    borderRadius: 5
+                },
+                {
+                    label: 'لم يصحح',
+                    data: notMarkedPercentages,
+                    backgroundColor: '#ffc107',
+                    borderColor: '#ffc107',
+                    borderWidth: 1,
+                    borderRadius: 5
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    stacked: true,
+                    title: {
+                        display: true,
+                        text: 'النسبة المئوية (%)'
+                    },
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.05)'
+                    }
+                },
+                x: {
+                    stacked: true,
+                    display: false
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                    titleColor: '#fff',
+                    bodyColor: '#fff',
+                    borderColor: '#4361ee',
+                    borderWidth: 1,
+                    cornerRadius: 8,
+                    callbacks: {
+                        title: function(context) {
+                            return context[0].label;
+                        }
+                    }
+                }
+            },
+            interaction: {
+                intersect: false,
+                mode: 'index'
+            }
+        }
+    });
+    
+    // Tab management
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Bootstrap tabs
+        const triggerTabList = document.querySelectorAll('#reportTabs button[data-bs-toggle="tab"]');
+        triggerTabList.forEach(triggerEl => {
+            const tabTrigger = new bootstrap.Tab(triggerEl);
+            triggerEl.addEventListener('click', function(event) {
+                event.preventDefault();
+                const tabName = this.getAttribute('data-tab');
+                document.getElementById('activeTabInput').value = tabName;
+                
+                // Reset page numbers when switching tabs
+                resetPageNumbers(tabName);
+                
+                // Store current tab in URL hash for scrolling
+                window.location.hash = 'tab=' + tabName;
+            });
+        });
+        
+        // Check if there's a tab in URL hash
+        if (window.location.hash) {
+            const hash = window.location.hash.substring(1);
+            if (hash.startsWith('tab=')) {
+                const tabName = hash.split('=')[1];
+                const tabElement = document.querySelector(`[data-tab="${tabName}"]`);
+                if (tabElement) {
+                    const tab = new bootstrap.Tab(tabElement);
+                    tab.show();
+                    document.getElementById('activeTabInput').value = tabName;
+                    
+                    // Scroll to tabs section
+                    setTimeout(() => {
+                        document.getElementById('reportTabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }
+            }
+        }
+        
+        // Show active tab on page load
+        const activeTab = 'summary';
+        if (activeTab) {
+            const tabElement = document.querySelector(`[data-tab="${activeTab}"]`);
+            if (tabElement) {
+                // Use setTimeout to ensure DOM is ready
+                setTimeout(() => {
+                    const tab = new bootstrap.Tab(tabElement);
+                    tab.show();
+                    
+                    // Scroll to tabs section
+                    setTimeout(() => {
+                        document.getElementById('reportTabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }, 300);
+            }
+        }
+    });
+
+    // Pagination functions
+    function goToPage(tab, page) {
+        // Set the active tab
+        document.getElementById('activeTabInput').value = tab;
+        
+        // Set the appropriate page input based on tab
+        switch(tab) {
+            case 'exams':
+                document.getElementById('examPageInput').value = page;
+                break;
+            case 'courses':
+                document.getElementById('coursePageInput').value = page;
+                break;
+            case 'videos':
+                document.getElementById('videoPageInput').value = page;
+                break;
+            case 'center':
+                document.getElementById('centerPageInput').value = page;
+                break;
+        }
+        
+        // Submit the form
+        document.getElementById('filterForm').submit();
+    }
+    
+    function resetPageNumbers(tab) {
+        // Reset all page numbers to 1 except the current tab
+        switch(tab) {
+            case 'exams':
+                document.getElementById('coursePageInput').value = 1;
+                document.getElementById('videoPageInput').value = 1;
+                document.getElementById('centerPageInput').value = 1;
+                break;
+            case 'courses':
+                document.getElementById('examPageInput').value = 1;
+                document.getElementById('videoPageInput').value = 1;
+                document.getElementById('centerPageInput').value = 1;
+                break;
+            case 'videos':
+                document.getElementById('examPageInput').value = 1;
+                document.getElementById('coursePageInput').value = 1;
+                document.getElementById('centerPageInput').value = 1;
+                break;
+            case 'center':
+                document.getElementById('examPageInput').value = 1;
+                document.getElementById('coursePageInput').value = 1;
+                document.getElementById('videoPageInput').value = 1;
+                break;
+        }
+    }
+    
+    // Reset page numbers when filtering
+    document.getElementById('filterButton').addEventListener('click', function() {
+        const activeTab = document.getElementById('activeTabInput').value || 'summary';
+        resetPageNumbers(activeTab);
+        
+        // Set current tab's page to 1
+        switch(activeTab) {
+            case 'exams':
+                document.getElementById('examPageInput').value = 1;
+                break;
+            case 'courses':
+                document.getElementById('coursePageInput').value = 1;
+                break;
+            case 'videos':
+                document.getElementById('videoPageInput').value = 1;
+                break;
+            case 'center':
+                document.getElementById('centerPageInput').value = 1;
+                break;
+        }
+    });
+
+    // Add smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Initialize tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+    
+    // Fix progress bars on load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ensure progress bars have proper height
+        document.querySelectorAll('.progress-custom .progress-bar').forEach(bar => {
+            const width = bar.style.width;
+            if (width && (width === '0%' || parseFloat(width) === 0)) {
+                bar.style.minWidth = '3px';
+            }
+        });
+    });
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v67327c56f0bb4ef8b305cae61679db8f1769101564043" integrity="sha512-rdcWY47ByXd76cbCFzznIcEaCN71jqkWBBqlwhF1SY7KubdLKZiEGeP7AyieKZlGP9hbY/MhGrwXzJC/HulNyg==" data-cf-beacon='{"version":"2024.11.0","token":"66a7f052de964bdc93fbdafb8fa7bb2f","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

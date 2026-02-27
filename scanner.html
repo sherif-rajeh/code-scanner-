@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scanner AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#2563eb">
+<style>
+:root{
+  --blue:#2563eb; --blue-dark:#1e3a8a; --bg:#0f172a; --card:#1f2937; --text:#e5e7eb;
+  --green:#22c55e; --yellow:#eab308; --red:#ef4444;
+  --shadow-md:0 10px 30px rgba(0,0,0,0.3);
+}
+*{box-sizing:border-box;font-family:'Cairo',sans-serif;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);overflow-x:hidden;transition:all .4s;}
+nav{background:linear-gradient(135deg,var(--blue-dark),var(--blue));padding:15px 30px;display:flex;justify-content:space-between;align-items:center;box-shadow:var(--shadow-md);border-radius:0 0 15px 15px;}
+nav .logo{font-size:2em;font-weight:700;color:#fff;}
+nav button{color:#fff;border:none;padding:12px 25px;border-radius:12px;font-weight:600;cursor:pointer;transition:all .3s;margin-left:10px;}
+nav button:hover{transform:translateY(-2px);}
+nav button#logoutBtn{background:#ef4444;}
+nav button#whatsappBtn{background:#25D366;}
+.container{max-width:1200px;margin:auto;padding:30px;}
+.grid{display:grid;gap:30px;}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+.card{background:var(--card);padding:30px;border-radius:15px;box-shadow:var(--shadow-md);border:1px solid rgba(255,255,255,0.05);transition:transform .3s,box-shadow .3s;}
+.card:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(0,0,0,0.4);}
+textarea{width:100%;height:250px;background:#111827;color:#e5e7eb;border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:20px;font-family:'Courier New',monospace;font-size:16px;}
+textarea:focus{outline:none;box-shadow:0 0 0 3px var(--blue);}
+.file-upload-btn{background:var(--blue);color:#fff;padding:15px 30px;border:none;border-radius:12px;cursor:pointer;font-weight:700;margin-bottom:20px;transition:all .3s;}
+.file-upload-btn:hover{transform:scale(1.05);}
+.vuln-item{padding:15px;margin:15px 0;border-radius:12px;color:#fff;font-weight:600;}
+.severity-high{background:#dc2626;}
+.severity-medium{background:#f59e0b;}
+.severity-low{background:#10b981;}
+.vuln-details{background:rgba(255,255,255,0.05);padding:12px;margin-top:10px;border-radius:10px;font-size:0.95em;color:#d1d5db;}
+button.fix-btn{margin-top:10px;padding:8px 16px;background:#22c55e;color:#fff;border:none;border-radius:8px;cursor:pointer;transition:all .3s;}
+button.fix-btn:hover{background:#16a34a;}
+.stat{font-size:2em;font-weight:700;margin-bottom:10px;}
+.progress{background:#1e2937;border-radius:12px;height:20px;overflow:hidden;margin-top:20px;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--green),#86efac);border-radius:12px;transition:width 1.5s ease;}
+@media(max-width:768px){.grid-2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">🛡️ Scanner AI</div>
+  <div>
+    <button id="logoutBtn" onclick="window.location.href='index.html'">خروج</button>
+    <button id="whatsappBtn" onclick="sendWhatsApp()">💬 واتساب</button>
+  </div>
+</nav>
+
+<div class="grid grid-2">
+  <div class="card">
+    <h3>🧠 فحص الكود الذكي</h3>
+    <input type="file" id="fileInput" accept=".txt,.js,.html,.php,.py,.css" style="display:none;">
+    <label for="fileInput" class="file-upload-btn">📁 رفع ملف كود</label>
+    
+    <!-- عمود الكود الأصلي -->
+    <h4>الكود الأصلي</h4>
+    <textarea id="codeInput" placeholder="الصق الكود هنا..."></textarea>
+    
+    <!-- عمود الكود بعد الإصلاح -->
+    <h4>الكود بعد الإصلاح</h4>
+    <!-- بعد زر الإصلاح التلقائي وقبل scanResult -->
+    <div style="margin-top:15px;">
+     <span style="font-weight:700;">عدد الثغرات: <span id="vulnCount">0</span></span> |
+      <span style="font-weight:700;">مستوى الأمان: <span id="secLevel">Low</span></span>
+     </div>
+    <textarea id="fixedCode" placeholder="الكود بعد الإصلاح سيظهر هنا..." readonly style="background:#1e2937;color:#86efac;"></textarea>
+    
+    <button onclick="deepScanCode()" class="file-upload-btn" style="width:100%;margin-top:15px;">🔍 فحص عميق</button>
+    <button onclick="autoFixCode()" class="file-upload-btn" style="background:#22c55e;margin-top:10px;">🛠️ إصلاح تلقائي</button>
+    
+    <div class="progress"><div id="progressBar" class="progress-fill" style="width:0%"></div></div>
+    <div id="scanResult"></div>
+  </div>
+</div>
+
+<script>
+const vulnerabilities=[
+  {name:'XSS', regex:/innerHTML|document\.write/i, severity:'high', 
+   desc:'هجوم يسمح بحقن سكريبتات ضارة داخل صفحات الويب.', 
+   fix:'استخدم textContent بدلاً من innerHTML وتحقق من المدخلات.'},
+  {name:'SQL Injection', regex:/SELECT.*FROM|INSERT.*INTO|UPDATE.*SET/i, severity:'high', 
+   desc:'هجوم يسمح بتنفيذ استعلامات SQL غير مصرح بها.', 
+   fix:'استخدم Prepared Statements مع متغيرات parameters.'},
+  {name:'Eval / Function Injection', regex:/eval\s*\(|Function\s*\(/i, severity:'high', 
+   desc:'تشغيل كود نصي غير موثوق مما يعرض النظام للخطر.', 
+   fix:'تجنب eval واستخدم دوال آمنة مثل JSON.parse أو دوال محددة.'},
+  {name:'CSRF Risk', regex:/csrf/i, severity:'medium', 
+   desc:'هجوم يرسل طلبات مزورة باسم المستخدم.', 
+   fix:'استخدم CSRF tokens لكل طلب حساس.'},
+  {name:'Insecure Cookie', regex:/document\.cookie/i, severity:'medium', 
+   desc:'الكوكيز قد تكون معرضة للسرقة إذا لم تحدد HttpOnly و Secure.', 
+   fix:'حدد HttpOnly و Secure و SameSite للكوكيز.'},
+  {name:'LocalStorage Risk', regex:/localStorage\.setItem/i, severity:'low', 
+   desc:'تخزين بيانات حساسة في LocalStorage غير آمن.', 
+   fix:'تجنب تخزين بيانات حساسة في LocalStorage أو استخدم تشفير.'},
+  {name:'Hardcoded Secret', regex:/api_key|password|secret/i, severity:'high', 
+   desc:'وجود كلمات مرور أو مفاتيح API داخل الكود.', 
+   fix:'استخدم ملفات إعدادات خارجية أو environment variables.'},
+  {name:'Open Redirect', regex:/window\.location|location\.href/i, severity:'medium', 
+   desc:'روابط تحويل غير آمنة يمكن استغلالها للتصيد.', 
+   fix:'تحقق من الروابط قبل إعادة التوجيه وسمح فقط بالمجالات الموثوقة.'}
+];
+
+document.getElementById('fileInput').addEventListener('change', e=>{
+  const file=e.target.files[0];
+  if(file){
+    const reader=new FileReader();
+    reader.onload=evt=>document.getElementById('codeInput').value=evt.target.result;
+    reader.readAsText(file);
+  }
+});
+
+function deepScanCode(){
+  const code=document.getElementById('codeInput').value;
+  let vulns=0;
+  let results=[];
+  vulnerabilities.forEach(v=>{
+    if(v.regex.test(code)){
+      vulns++;
+      results.push(`<div class="vuln-item severity-${v.severity}">🚨 ${v.name}
+      <div class="vuln-details"><strong>شرح:</strong> ${v.desc}<br><strong>طريقة الإصلاح:</strong> ${v.fix}</div></div>`);
+    }
+  });
+  if(!results.length) results.push('<div class="vuln-item severity-low">✅ لا توجد ثغرات</div>');
+  
+  document.getElementById('vulnCount').textContent=vulns;
+  document.getElementById('secLevel').textContent=vulns>3?'High':vulns>0?'Medium':'Low';
+  document.getElementById('scanResult').innerHTML=results.join('');
+  document.getElementById('progressBar').style.width=Math.min(100,vulns*12.5)+'%';
+}
+
+function autoFixCode(){
+  let originalCode=document.getElementById('codeInput').value;
+  let fixedCode=originalCode;
+
+  vulnerabilities.forEach(v=>{
+    if(v.regex.test(fixedCode)){
+      if(v.name==='XSS') fixedCode=fixedCode.replace(/innerHTML|document\.write/g,'textContent');
+      if(v.name==='Eval / Function Injection') fixedCode=fixedCode.replace(/eval\s*\(/g,'JSON.parse(');
+      if(v.name==='SQL Injection') fixedCode=fixedCode.replace(/SELECT.*FROM|INSERT.*INTO|UPDATE.*SET/g,'/* استعلام مؤمن */');
+      if(v.name==='Insecure Cookie') fixedCode=fixedCode.replace(/document\.cookie/g,'/* كوكيز آمنة */');
+      if(v.name==='LocalStorage Risk') fixedCode=fixedCode.replace(/localStorage\.setItem/g,'/* تخزين مشفر */');
+    }
+  });
+
+  document.getElementById('fixedCode').value=fixedCode;
+  deepScanCode();
+  alert('✅ تم إصلاح الثغرات البسيطة، والكود بعد الإصلاح يظهر على اليمين!');
+}
+
+function sendWhatsApp(){
+  const code=document.getElementById('codeInput').value||"لم يتم رفع كود بعد";
+  const message=encodeURIComponent(`مرحباً، أحتاج مساعدة بخصوص الكود التالي:\n\n${code}`);
+  const phone='201098995624';
+  window.open(`https://wa.me/${phone}?text=${message}`,'_blank');
+}
+</script>
+
+</body>
+</html>

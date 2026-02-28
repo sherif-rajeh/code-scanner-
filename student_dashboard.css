@@ -1,0 +1,146 @@
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --accent-color: #4cc9f0;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+}
+
+
+.dashboard-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.dashboard-card:hover .card-icon {
+    transform: scale(1.2);
+    color: var(--secondary-color);
+}
+
+.card-title {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+.card-text {
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+}
+
+.btn-primary-mine, .btn-warning-mine, .btn-info-mine {
+    border: none;
+    border-radius: 50px;
+    padding: 15px 25px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary-mine {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary-mine:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(67, 97, 238, 0.3);
+}
+
+.btn-warning-mine {
+    background-color: #ff9e00;
+    color: white;
+}
+
+.btn-warning-mine:hover {
+    background-color: #ff9100;
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(255, 158, 0, 0.3);
+}
+
+.btn-info-mine {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.btn-info-mine:hover {
+    background-color: #138496;
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(23, 162, 184, 0.3);
+}
+
+.btn-icon {
+    margin-left: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-mine:hover .btn-icon, 
+.btn-warning-mine:hover .btn-icon,
+.btn-info-mine:hover .btn-icon {
+    transform: rotate(15deg);
+}
+
+.welcome-section {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeInDown 1s ease;
+}
+
+.welcome-title {
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+}
+
+.welcome-text {
+    color: #6c757d;
+    font-size: 1.1rem;
+}
+
+.user-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+.row {
+    overflow: hidden;
+}
